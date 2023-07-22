@@ -2,25 +2,19 @@ import java.util.ArrayList;
 
 public class Slot {
     private ArrayList<Item> Items;
+    private Item Product;
 
-    public Slot(){
+    public Slot(Item product){
         this.Items = new ArrayList<>();
     }
 
-    public void addItem(String name, int quantity, double price){
-        boolean flag = false;
+    public void setProduct(Item product){
+        this.Product = product;
+    }
 
-        for(Item i : Items){
-            if(i.getName().equals(name)){
-                flag = true;
-                break;
-            }
-        }
-
-        if(!flag){
-            for(Item i : Items){
-                Items.add(new Item(price, name));
-            }
+    public void addItem(Item product){
+        if(product.getName().equals(Product.getName())){
+            this.Items.add(product);
         }
     }
 
@@ -28,11 +22,26 @@ public class Slot {
         return Items.size();
     }
 
-    public Item getProduct(String name){
+    public Item getItem(String name){
         for(Item i : Items){
             if(i.getName().equals(name))
                 return i;
         }
         return null;
+    }
+
+    public void sellItem(String name){
+        Item i = this.getItem(name);
+
+        if(i!=null)
+            i=null;
+    }
+
+    public Item getProduct(){
+        return this.Product;
+    }
+
+    public void clearSlot(){
+        this.Items.clear();
     }
 }
