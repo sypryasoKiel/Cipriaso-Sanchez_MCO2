@@ -1,3 +1,4 @@
+
 public class CashRegister {
     private Cash[] Register;
 
