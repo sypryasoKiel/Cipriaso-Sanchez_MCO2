@@ -24,8 +24,7 @@ public class Maintenance extends JFrame {
     private JTextPane display;
     private JButton back;
     private JTextPane displayMoney;
-    private final Slot[] rvmSlots;
-    private final Slot[] svmSlots;
+    private final Slot[] vmSlots;
     private int[] money;
     private int total;
 
@@ -49,9 +48,8 @@ public class Maintenance extends JFrame {
         return slotDisplay;
     }
 
-    public Maintenance(Menu sourceFrame, slot[] rvmSlots, slot[] svmSlots, int[] money){
-        this.rvmSlots = rvmSlots;
-        this.svmSlots = svmSlots;
+    public Maintenance(Menu sourceFrame, slot[] vmSlots, int[] money){
+        this.rvmSlots = vmSlots;
         this.money = money;
         setContentPane(display);
         setTitle("Maintenance");
@@ -104,6 +102,5 @@ public class Maintenance extends JFrame {
         });
     }
 
-    public void 
 
     }
