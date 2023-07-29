@@ -1,13 +1,16 @@
 import java.util.ArrayList;
 
-public class RegularVendingMachine  {
+public class VendingMachine {
     private Slot[] slotList;
     private CashRegister CashStorage;
     private ArrayList<Transaction> Transactions;
 
-    public RegularVendingMachine(Slot[] intSlot, int cashQty){
-        this.slotList = intSlot;
-        this.CashStorage = new CashRegister(cashQty);
+    public VendingMachine(int numSlot,int maxQty){
+        this.slotList = new Slot[numSlot];
+        this.CashStorage = new CashRegister(10);
+        for(int i=0;i<numSlot;i++){
+            slotList[i]=new Slot(maxQty);
+        }
     }
 
     public Cash[] doubleToCash(double money){ //transforms a money in double format (i.e. PHP 1234.56) to cash array format (i.e. 1x 1000, 1x 200, 1x 20, 1x 10, 4x 1, 2x 0.25, 1x 0.05, 1x 0.01)
@@ -85,7 +88,6 @@ public class RegularVendingMachine  {
 
         if(money>=0.01){
             wallet[11].addQuantity((int) money*100);
-            money-=0.01*wallet[11].getQuantity();
         }
 
         return wallet;
