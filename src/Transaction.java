@@ -1,26 +1,26 @@
 import java.util.ArrayList;
 
 public class Transaction {
-    private int[] currentStocks;
-    private int[] initialStocks;
 
-    public void addStocks(int slotNum, int qty){
-        currentStocks[slotNum-1]+=qty;
-        initialStocks[slotNum-1]=currentStocks[slotNum-1];
+    private String transactionType;
+    private Item product;
+    private Cash[] returnedCash;
+
+    public Transaction(String transactionType, Item product, Cash[] returnedCash){ //constructor, requires transactionType (i.e. "Sold Item", "Refunded - Insufficient Payment, "Refunded - No Change produced"), The product itself, and the money refunded/change
+        this.transactionType = transactionType;
+        this.product = product;
+        this.returnedCash = returnedCash;
     }
 
-    public void removeStocks(int slotNum, int qty){
-        currentStocks[slotNum-1]-=qty;
+    public String getTransactionType(){ // returns String of type of transaction (i.e. "Sold Item", "Refunded - Insufficient Payment, "Refunded - No Change produced")
+        return transactionType;
     }
 
-    /*
-    GUI related methods
-     */
-    public void displayEarnings(ArrayList<Slot> slotList){
-
+    public Item getProduct(){ //returns the product to be bought (when cash is refunded) or when sold (when change is provided)
+        return product;
     }
 
-    public void displayStocks(ArrayList<Slot> slotList){
-
+    public Cash[] getReturnedCash() { //returns the cash refunded/change in Cash Array form
+        return returnedCash;
     }
 }
