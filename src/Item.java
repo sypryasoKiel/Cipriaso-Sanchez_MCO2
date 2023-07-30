@@ -21,5 +21,8 @@ public class Item {
         return this.CALORIES;
     }
     
-    
+    public double setPrice(double price){
+        final double PRICE = price;
+        return PRICE;
+    }
 }

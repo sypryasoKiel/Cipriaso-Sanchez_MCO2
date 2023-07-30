@@ -1,6 +1,7 @@
 public class Maintenance{
     private Slot[] slots;
     private Cash[] cash;
+    private CashRegister[] registers;
     private Item[] items;
     private Transaction[] transactions;
     private int slotCount;
@@ -8,22 +9,36 @@ public class Maintenance{
     private int itemCount;
     private int transactionCount;
 
-    public void setItemPrice(int itemIndex, int price){
-        this.items[itemIndex];
+    public void setItemPrice(int index, double price){
+        this.items[index].setPrice(price);
     }
 
-    public void refillSlots(){
+    public void refillStock(){
         for(int i=0;i<slotCount;i++){
             this.slots[i].getQuantity();
         }
     }
 
-    public void refillCash(){
-        for(int i=0;i<cashCount;i++){
-            this.cash[i].addQuantity(i);;
-        }
+    public void replaceItemSlots(int index, Item item){
+        this.slots[index].setProduct(item);
     }
 
-    
+    public String getTransactionHistory(){
+        String transactionHistory = "";
+        for(int i=0;i<transactionCount;i++){
+            transactionHistory += transactions[i].getProduct() + " "+ transactions[i].getTransactionType() + "\n";
+        }
+        return transactionHistory;
+    }
+
+    public Cash[] getRegisters(){ //gets money from register
+        Cash[] registers = getRegisters();
+        return registers;
+    }
+
+    public void refillRegis(){
+       
+    }
+
     
 }
