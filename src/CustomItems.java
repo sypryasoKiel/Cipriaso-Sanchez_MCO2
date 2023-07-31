@@ -14,12 +14,24 @@ public class CustomItems extends Item{
         this.calories = calories;
         this.ingridients = new ArrayList<Item>();
     }
+    /**
+     * gets the name of the item
+     * @return name the name
+     */
     public String getName(){
         return this.name;
     }
+    /**
+     * gets the price of the item
+     * @return price the price
+     */
     public double getPrice(){
         return this.price;
     }
+    /**
+     * gets the amount of calories of the item
+     * @return calories the amount of calories
+     */
     public double getCalories(){
         return this.calories;
     }
