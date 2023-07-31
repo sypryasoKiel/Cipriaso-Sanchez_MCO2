@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class VendingMachine {
-    private Slot[] slotList;
+    protected Slot[] slotList;
     private CashRegister CashStorage;
     private ArrayList<Transaction> Transactions;
 
@@ -14,6 +14,11 @@ public class VendingMachine {
         this.slotList = slotList;
     }
 
+    /**
+     * 
+     * @param money
+     * @return wallet 
+     */
     public Cash[] doubleToCash(double money){ //transforms a money in double format (i.e. PHP 1234.56) to cash array format (i.e. 1x 1000, 1x 200, 1x 20, 1x 10, 4x 1, 2x 0.25, 1x 0.05, 1x 0.01)
         Cash[] wallet = new Cash[12];
 

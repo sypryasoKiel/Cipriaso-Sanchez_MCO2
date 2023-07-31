@@ -1,6 +1,10 @@
-public class CashRegister {
+    public class CashRegister {
     private Cash[] Register;
 
+    /**
+     * Constructor for objects of class CashRegister
+     * @param qty
+     */
     public CashRegister(int qty){
         this.Register=new Cash[12];
         this.Register[0] = new Cash(1000,qty);
@@ -17,6 +21,11 @@ public class CashRegister {
         this.Register[11] = new Cash(0.01,qty);
     }
 
+
+    /**
+     * Adds cash to the register
+     * @param cash
+     */
     public void addCash(Cash cash){ //adds cash to register
         for(int i=0;i<Register.length;i++){
             if(cash.getDenomination()==Register[i].getDenomination()){
@@ -25,6 +34,10 @@ public class CashRegister {
         }
     }
 
+    /**
+     * Removes cash from the register
+     * @param cash
+     */
     public void removeCash(Cash cash){ //removes cash from the register
         for(int i=0;i<Register.length;i++){
             if(cash.getDenomination()==Register[i].getDenomination()){
@@ -34,6 +47,10 @@ public class CashRegister {
     }
 
 
+    /**
+     * Gets the register
+     * @return Register the register array
+     */
     public Cash[] getRegister(){
         return this.Register;
     } //gets the register

@@ -7,22 +7,38 @@ public class Cash {
         this.Quantity = qty;
     }
 
+    /**
+     * gets the quantity of the cash
+     * @return Quantity the quantity of the cash
+     */
     public int getQuantity() {
         return this.Quantity;
     }
 
+    /**
+     * adds quantity to the cash
+     * @param qty
+     */
     public void addQuantity(int qty){
         if(qty>=1){
             this.Quantity+=qty;
         }
     }
 
+    /**
+     * removes quantity from the cash
+     * @param qty
+     */
     public void removeQuantity(int qty){
         if(qty>=1 && (this.Quantity-qty)>=0){
             this.Quantity-=qty;
         }
     }
 
+    /**
+     * gets the denomination of the cash
+     * @return DENOMINATION the denomination of the cash
+     */
     public double getDenomination(){
         return this.DENOMINATION;
     }
