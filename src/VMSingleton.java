@@ -1,19 +1,19 @@
 public class VMSingleton {
-    private final VendingMachine data;
-
-    private static VMSingleton instance;
-
-    private VMSingleton(VendingMachine data) {
-        this.data = data;
-    }
-    public static VMSingleton getInstance(VendingMachine data) {
-            if (instance == null) {
-                instance = new VMSingleton(data);
-            }
+    private static final VMSingleton instance = new VMSingleton();
+    public static VMSingleton getInstance(){
         return instance;
     }
+    private VendingMachine VM;
 
-    public VendingMachine getData() {
-        return data;
+    public void setVM(VendingMachine VM) {
+        this.VM = VM;
+    }
+
+    public void deleteVM(){
+        this.VM=null;
+    }
+
+    public VendingMachine getVM() {
+        return VM;
     }
 }

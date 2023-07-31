@@ -17,7 +17,7 @@
          <font>
             <Font name="Arial Black" size="25.0" />
          </font></Button>
-      <Button fx:id="back" layoutX="675.0" layoutY="550.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" style="-fx-background-color: #9f9f9f;" text="Back">
+      <Button fx:id="back" layoutX="675.0" layoutY="550.0" mnemonicParsing="false" onAction="#back" prefHeight="100.0" prefWidth="250.0" style="-fx-background-color: #9f9f9f;" text="Back">
          <font>
             <Font name="Arial Black" size="30.0" />
          </font>

@@ -11,7 +11,7 @@ public class Maintenance{
     private double price;
 
     public void setItemPrice(int index, double price){
-        this.items[index];
+        this.items[index] = new Item(price,this.items[index].getName(),this.items[index].getCalories());
     }
 
     public void refillStock(){

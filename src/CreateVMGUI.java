@@ -5,10 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -31,7 +28,7 @@ public class CreateVMGUI implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    VMSingleton VM;
+    VMSingleton VM = VMSingleton.getInstance();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
@@ -61,22 +58,30 @@ public class CreateVMGUI implements Initializable {
     }
 
     public void enter(ActionEvent event) throws IOException{
-        Factory createVM = new Factory();
-        String choice = vmType.getValue();
-        int SlotNum = (int) numSlots.getValue();
-        int maxcap = (int) maxCap.getValue();
+        try {
+            Factory createVM = new Factory();
+            String choice = vmType.getValue();
+            int SlotNum = (int) numSlots.getValue();
+            int maxcap = (int) maxCap.getValue();
 
-        VM = VMSingleton.getInstance(createVM.createVendingMachine(choice,SlotNum,maxcap));
+            VM.setVM(createVM.createVendingMachine(choice, SlotNum, maxcap));
 
-        System.out.println("Choice : "+choice);
-        System.out.println("numSlots : "+SlotNum);
-        System.out.println("maxCap : "+maxcap);
+            System.out.println("Choice : " + VM.getVM().getClass());
+            System.out.println("numSlots : " + SlotNum);
+            System.out.println("maxCap : " + maxcap);
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("MainMenuGUI.fxml"));
-        root = loader.load();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("MainMenuGUI.fxml"));
+            root = loader.load();
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Nuh-uh");
+            alert.setContentText("batang pasaway");
+            alert.showAndWait();
+        }
     }
 }
