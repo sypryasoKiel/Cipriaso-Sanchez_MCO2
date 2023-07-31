@@ -8,6 +8,11 @@ public class Item {
         this.PRICE = price;
         this.CALORIES = calories;
     }
+    
+    public double setPrice(double price){
+        final double PRICE = price;
+        return PRICE;
+    }
 
     public double getPrice(){
         return this.PRICE;
@@ -21,8 +26,5 @@ public class Item {
         return this.CALORIES;
     }
     
-    public double setPrice(double price){
-        final double PRICE = price;
-        return PRICE;
-    }
+    
 }
