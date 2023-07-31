@@ -10,20 +10,36 @@ public class Maintenance{
     private int transactionCount;
     private double price;
 
-    public void setItemPrice(int index, double price){
-        this.items[index] = new Item(price,this.items[index].getName(),this.items[index].getCalories());
+    /**
+     * sets the price of the item
+     * @param price the price
+     */
+    public void setItemPrice(double price){
+        this.price = price;
     }
 
+    /**
+     * refills the stock of that slot
+     */
     public void refillStock(){
         for(int i=0;i<slotCount;i++){
             this.slots[i].getQuantity();
         }
     }
 
+    /**
+     * replaces the Item in the slot
+     * @param item the item
+     * @param index the index of the item
+     */
     public void replaceItemSlots(int index, Item item){
         this.slots[index].setProduct(item);
     }
 
+    /**
+     * gets the transaction history
+     * @return transactionHistory the transaction history
+     */
     public String getTransactionHistory(){
         String transactionHistory = "";
         for(int i=0;i<transactionCount;i++){
@@ -32,13 +48,23 @@ public class Maintenance{
         return transactionHistory;
     }
 
-    public Cash[] getRegisters(){ //gets money from register
-        Cash[] registers = getRegisters();
-        return registers;
+    /**
+     * gets the cash
+     * @return cash the cash
+     */
+    public Cash[] getCash(){
+        return this.cash;
     }
 
-    public void refillRegis(){
-        
+    /**
+     * refills the money in the register
+     * @param registers the registers
+     * @param cash the cash
+     */
+    public void refillMoneyRegis(CashRegister[] registers, Cash[] cash){
+        for(int i=0;i<cashCount;i++){
+            registers[i].addCash(cash[i]);
+        }
     }
 
     
