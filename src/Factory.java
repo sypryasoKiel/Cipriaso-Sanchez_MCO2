@@ -1,3 +1,6 @@
+/**
+ * Factory class that creates a vending machine
+ */
 import java.util.Random;
 
 public class Factory {
@@ -26,6 +29,12 @@ public class Factory {
         return itemList;
     }
 
+    /**
+     * Randomly initializes the slots of the vending machine
+     * @param numSlots
+     * @param maxcap
+     * @return
+     */
     public Slot[] randomInitializer(int numSlots,int maxcap){
         Slot[] intSlot = new Slot[numSlots];
         Item[] itemList = itemInit();
@@ -40,7 +49,13 @@ public class Factory {
         return intSlot;
     }
 
-
+    /**
+     * Creates a vending machine
+     * @param type the type of sale
+     * @param numslot the number of slots
+     * @param maxcap the maximum capacity of each slot
+     * @return the vending machine 
+     */
     public VendingMachine createVendingMachine(String type, int numslot, int maxcap){
         RVMachine regular = new RVMachine();
         SVMachine special = new SVMachine();
