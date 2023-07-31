@@ -11,7 +11,7 @@ public class Maintenance{
     private double price;
 
     public void setItemPrice(int index, double price){
-        this.items[index];
+        
     }
 
     public void refillStock(){
@@ -32,13 +32,14 @@ public class Maintenance{
         return transactionHistory;
     }
 
-    public Cash[] getRegisters(){ //gets money from register
-        Cash[] registers = getRegisters();
-        return registers;
+    public Cash[] getCash(){
+        return this.cash;
     }
 
-    public void refillRegis(){
-        
+    public void refillMoneyRegis(CashRegister[] registers, Cash[] cash){
+        for(int i=0;i<cashCount;i++){
+            registers[i].addCash(cash[i]);
+        }
     }
 
     
