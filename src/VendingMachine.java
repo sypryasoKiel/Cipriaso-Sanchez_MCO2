@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class VendingMachine {
-    private Slot[] slotList;
+    protected Slot[] slotList;
     private CashRegister CashStorage;
     private ArrayList<Transaction> Transactions;
 

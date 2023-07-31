@@ -8,9 +8,10 @@ public class Maintenance{
     private int cashCount;
     private int itemCount;
     private int transactionCount;
+    private double price;
 
     public void setItemPrice(int index, double price){
-        this.items[index].setPrice(price);
+        this.items[index];
     }
 
     public void refillStock(){
@@ -37,7 +38,7 @@ public class Maintenance{
     }
 
     public void refillRegis(){
-       
+        
     }
 
     

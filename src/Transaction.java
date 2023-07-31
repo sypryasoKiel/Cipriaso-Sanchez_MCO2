@@ -25,12 +25,12 @@ public class Transaction {
         return returnedCash;
     }
 
-    public String getInitialStock(){ //returns the initial stocks of the machine in String format
-        String initialStocks = "";
+    public String getInitialStock(){ //returns the initial stocks of the machine in String format after restocking
+        String initialStock = "";
         for(int i=0;i<slots.length;i++){
-            initialStocks += slots[i].getProduct().getName() + ": " + slots[i].getQuantity() + "\n"; //(work in progress)
-        }
-        return initialStocks;
+            initialStock += slots[i].getProduct().getName() + ": " + slots[i] +  "\n";
+    }
+    return initialStock;
     }
 
     public String getCurrentStocks(){ //returns the current stocks of the machine in String format
