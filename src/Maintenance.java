@@ -49,7 +49,7 @@ public class Maintenance{
 
     /**
      * gets the cash
-     * @return cash the cash
+     * @return cash the amount cash
      */
     public Cash[] getCash(){
         return this.cash;
@@ -58,7 +58,7 @@ public class Maintenance{
     /**
      * refills the money in the register
      * @param registers the registers
-     * @param cash the cash
+     * @param cash the amount of cash
      */
     public void refillMoneyRegis(CashRegister[] registers, Cash[] cash){
         for(int i=0;i<cashCount;i++){

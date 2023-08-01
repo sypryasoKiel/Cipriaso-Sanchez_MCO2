@@ -11,7 +11,7 @@ public class SVMachine extends VendingMachine {
         this.Transactions = new ArrayList<>();
     }
     /**
-     *  gets the item list 
+     * gets the item list 
      * @param recipe the recipe of the item
      * @return itemList the item list
      */
