@@ -1,19 +1,23 @@
 public class VMSingleton {
-    private static final VMSingleton instance = new VMSingleton();
-    public static VMSingleton getInstance(){
+    private static VMSingleton instance;
+    private VendingMachine currentVM;
+
+    private VMSingleton(){}
+    static VMSingleton getInstance() {
+        if(instance==null){
+            instance = new VMSingleton();
+        }
         return instance;
     }
-    private VendingMachine VM;
 
-    public void setVM(VendingMachine VM) {
-        this.VM = VM;
+    public void setCurrentVM(VendingMachine currentVM) {
+        this.currentVM = currentVM;
     }
 
-    public void deleteVM(){
-        this.VM=null;
+    public void deleteCurrentVM(){
+        this.currentVM = null;
     }
-
-    public VendingMachine getVM() {
-        return VM;
+    public VendingMachine getCurrentVM(){
+        return currentVM;
     }
 }

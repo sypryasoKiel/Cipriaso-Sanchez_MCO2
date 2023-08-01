@@ -2,6 +2,7 @@ import java.util.Random;
 
 public class Factory {
     private VendingMachine VM;
+    VMSingleton vm = VMSingleton.getInstance();
 
     public Item[] itemInit(){
         Item[] itemList = new Item[16];
@@ -20,42 +21,38 @@ public class Factory {
         itemList[11] = new Item(1450.50,"Black Forest Cake",875.50);
         itemList[12] = new Item(700.50,"Cornbread Muffin",145.50);
         itemList[13] = new Item(500.40,"Vanilla Cupcake",105.50);
-        itemList[14] = new Item(350.75,"Strawberry Donut",85.50);
-        itemList[15] = new Item(250.20,"Baguette",60.50);
+        itemList[14] = new Item(350.75,"Baguette",85.50);
 
         return itemList;
     }
 
-    public Slot[] randomInitializer(int numSlots,int maxcap){
-        Slot[] intSlot = new Slot[numSlots];
-        Item[] itemList = itemInit();
-        Random rand = new Random();
-        int upperBound = 16;
+    public void createVendingMachine(String type, int maxcap){
+        RVMachine regular;
+        SVMachine special;
+        Slot[] slotList = new Slot[15];
+        Item[] items = itemInit();
 
-        for(int i=0;i<numSlots;i++){
-            int randomInt = rand.nextInt(upperBound);
-            intSlot[i] = new Slot(maxcap);
-            intSlot[i].setProduct(itemList[randomInt]);
+        vm.deleteCurrentVM();
+
+        for(int i=0;i<15;i++){
+            slotList[i] = new Slot(maxcap);
+            slotList[i].setProduct(items[i]);
+            slotList[i].addItem(10);
         }
-        return intSlot;
-    }
-
-
-    public VendingMachine createVendingMachine(String type, int numslot, int maxcap){
-        RVMachine regular = new RVMachine();
-        SVMachine special = new SVMachine();
-        Slot[] slotList = randomInitializer(numslot,maxcap);
 
         switch(type){
             case "Regular":
-                regular.setSlotList(slotList);
-                return regular;
+                regular=new RVMachine(slotList);
+                vm.setCurrentVM(regular);
+                break;
 
             case "Special":
-                return new SVMachine();
+                special=new SVMachine(slotList);
+                vm.setCurrentVM(special);
+                break;
 
             default:
-                return null;
+                System.out.println("bruh");
         }
     }
 }

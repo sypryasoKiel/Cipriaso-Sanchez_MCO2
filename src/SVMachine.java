@@ -3,11 +3,12 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class SVMachine extends VendingMachine {
-    public SVMachine(){
+    public SVMachine(Slot[] slotList){
         super();
+        this.slotList = slotList;
+        this.CashStorage = new CashRegister(10);
+        this.Transactions = new ArrayList<>();
     }
-
-
     public ArrayList<Item> getItemList(ArrayList<Item> recipe){
         Item flag = null;
         ArrayList<Item> itemList = new ArrayList<>();

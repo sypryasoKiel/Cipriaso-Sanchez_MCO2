@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 public class VendingMachine {
-    private Slot[] slotList;
-    private CashRegister CashStorage;
-    private ArrayList<Transaction> Transactions;
+    public Slot[] slotList;
+    public CashRegister CashStorage;
+    public ArrayList<Transaction> Transactions;
 
     public VendingMachine(){
         this.CashStorage = new CashRegister(10);
@@ -105,13 +105,6 @@ public class VendingMachine {
 
     public void updateSlotProducts(Item product, int slotIndex){ //changes the product of the slot, removes all previous item in the slot
         this.slotList[slotIndex].setProduct(product);
-    }
-
-    public void refillSlots(int slotIndex, int quantity){ //refills the specified slot based on the given quantity
-        if(this.slotList[slotIndex].getProduct()!=null){
-            for(int i=0;i<quantity;i++)
-                this.slotList[slotIndex].addItem();
-        }
     }
 
     public boolean isChangeAvailable(Cash[] change){ //checks if change can be given by the cash register

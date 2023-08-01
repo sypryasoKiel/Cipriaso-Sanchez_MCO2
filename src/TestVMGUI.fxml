@@ -13,7 +13,7 @@
          <font>
             <Font name="Arial Black" size="30.0" />
          </font></Button>
-      <Button fx:id="maintenanceButton" layoutX="675.0" layoutY="350.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="250.0" style="-fx-background-color: #9f9f9f;" text="Maintenance">
+      <Button fx:id="maintenanceButton" layoutX="675.0" layoutY="350.0" mnemonicParsing="false" onAction="#maintain" prefHeight="101.0" prefWidth="250.0" style="-fx-background-color: #9f9f9f;" text="Maintenance">
          <font>
             <Font name="Arial Black" size="25.0" />
          </font></Button>

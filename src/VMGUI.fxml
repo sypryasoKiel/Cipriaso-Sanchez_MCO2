@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Point3D?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -51,24 +53,6 @@
             <Button fx:id="enter" mnemonicParsing="false" onAction="#enterClick" prefHeight="100.0" prefWidth="100.0" text="Enter" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>
-      <ScrollPane hbarPolicy="NEVER" layoutX="50.0" layoutY="50.0" pannable="true" prefHeight="700.0" prefWidth="500.0" vbarPolicy="ALWAYS">
-         <content>
-            <GridPane gridLinesVisible="true" prefHeight="700.0" prefWidth="490.0">
-              <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-            </GridPane>
-         </content>
-      </ScrollPane>
       <Pane layoutX="677.0" layoutY="77.0" prefHeight="200.0" prefWidth="0.0" />
       <Button layoutX="650.0" layoutY="650.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: #9f9f9f; -fx-border-color: #000000; -fx-border-width: 5;" text="Buy !!">
          <font>
@@ -90,5 +74,109 @@
             <Font name="Arial Black" size="21.0" />
          </font>
       </TextField>
+      <Pane layoutX="50.0" layoutY="50.0" prefHeight="700.0" prefWidth="500.0" style="-fx-background-color: #FFFFFF;" AnchorPane.topAnchor="50.0">
+         <children>
+            <GridPane fx:id="VMPanel" layoutX="50.0" layoutY="50.0" prefHeight="600.0" prefWidth="400.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <ImageView fitHeight="120.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true" scaleY="1.3" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="file:/Users/quielc./Downloads/download%20(7).jpeg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="120.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true" scaleY="1.27">
+                     <image>
+                        <Image url="file:/Users/quielc./Downloads/Brown-eggs.jpeg" />
+                     </image>
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </ImageView>
+                  <ImageView fitHeight="120.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true" scaleY="1.4" GridPane.columnIndex="1">
+                     <image>
+                        <Image url="file:/Users/quielc./Downloads/download%20(11).jpeg" />
+                     </image>
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </ImageView>
+                  <ImageView fitHeight="120.0" fitWidth="116.0" pickOnBounds="true" preserveRatio="true" scaleX="1.7" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                     <image>
+                        <Image url="file:/Users/quielc./Downloads/download%20(16).jpeg" />
+                     </image>
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </ImageView>
+                  <ImageView fitHeight="120.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="file:/Users/quielc./Downloads/download%20(12).jpeg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="120.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="file:/Users/quielc./Downloads/download%20(17).jpeg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="120.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true" scaleY="1.2" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="file:/Users/quielc./Downloads/download%20(8).jpeg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="120.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="file:/Users/quielc./Downloads/download%20(13).jpeg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="120.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true" scaleX="1.08" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="file:/Users/quielc./Downloads/download%20(18).jpeg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="120.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true" scaleY="1.5" GridPane.rowIndex="3">
+                     <image>
+                        <Image url="file:/Users/quielc./Downloads/download%20(9).jpeg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="120.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true" scaleX="1.15" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                     <image>
+                        <Image url="file:/Users/quielc./Downloads/download%20(14).jpeg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="120.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                     <image>
+                        <Image url="file:/Users/quielc./Downloads/download%20(19).jpeg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="120.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                     <image>
+                        <Image url="file:/Users/quielc./Downloads/download%20(10).jpeg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="120.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true" scaleY="1.3" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                     <image>
+                        <Image url="file:/Users/quielc./Downloads/download%20(15).jpeg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="120.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true" scaleY="1.2" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                     <image>
+                        <Image url="file:/Users/quielc./Downloads/download%20(20).jpeg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </GridPane>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

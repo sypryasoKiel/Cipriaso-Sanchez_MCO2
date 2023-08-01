@@ -23,9 +23,19 @@ public class TestVMGUI {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    VMSingleton VM;
 
     public void buy(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("VMGUI.fxml"));
+        root = loader.load();
+        stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void maintain(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MaintenanceVMGUI.fxml"));
         root = loader.load();
         stage=(Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

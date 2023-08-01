@@ -27,13 +27,14 @@ public class Slot {
      * 
      * @return true if the slot has not reached maximum capacity, false otherwise
      */
-    public boolean addItem(){ //increments 1 item to the slot given the slot has not reached maximum capacity
-        if(this.Items.size()==MaxQty) {
-            Items.add(Product);
+    public boolean addItem(int qty){ //increments 1 item to the slot given the slot has not reached maximum capacity
+        if(((qty+this.Items.size())<=MaxQty)&&qty>0){
+            for(int i=0;i<qty;i++){
+                Items.add(Product);
+            }
             return true;
         }
-        else
-            return false;
+        return false;
     }
 
     /**
@@ -42,6 +43,9 @@ public class Slot {
      */
     public int getQuantity(){ //gets the quantity of items in this slot
         return this.Items.size();
+    }
+    public int getMaxQty(){
+        return this.MaxQty;
     }
 
     /**

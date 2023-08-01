@@ -26,11 +26,11 @@ public class MainMenuGUI{
     }
 
     public void openTestMenu(ActionEvent event) throws IOException {
-        if(VM.getVM()==null) {
+        if(VM.getCurrentVM()==null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Nuh-uh");
-            alert.setContentText("batang pasaway");
+            alert.setTitle("Vending Machine");
+            alert.setHeaderText(null);
+            alert.setContentText("Create a Vending machine first!!");
             alert.showAndWait();
         }
         else {

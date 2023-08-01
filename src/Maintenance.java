@@ -9,22 +9,21 @@ public class Maintenance{
     private int itemCount;
     private int transactionCount;
     private double price;
+    VMSingleton VM = VMSingleton.getInstance();
 
     /**
      * sets the price of the item
      * @param price the price
      */
-    public void setItemPrice(double price){
-        this.price = price;
+    public void setItemPrice(double price,int slotNum){
+        VM.getCurrentVM().getSlotList()[slotNum].getProduct().setPrice(price);
     }
 
     /**
      * refills the stock of that slot
      */
-    public void refillStock(){
-        for(int i=0;i<slotCount;i++){
-            this.slots[i].getQuantity();
-        }
+    public void refillStock(int qty, int slotNum){
+        VM.getCurrentVM().getSlotList()[slotNum-1].addItem(qty);
     }
 
     /**

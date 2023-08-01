@@ -17,11 +17,7 @@ public class CreateVMGUI implements Initializable {
     @FXML
     ChoiceBox<String> vmType;
     @FXML
-    Slider numSlots;
-    @FXML
     Slider maxCap;
-    @FXML
-    Label slotText;
     @FXML
     Label maxText;
     String[] types = {"Regular","Special"};
@@ -34,9 +30,6 @@ public class CreateVMGUI implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle){
         vmType.getItems().addAll(types);
         vmType.setOnAction(this::getData);
-        numSlots.valueProperty().addListener((observableValue, number, t1) -> {
-            slotText.setText("Slots = "+Double.toString((int) numSlots.getValue()));
-        });
         maxCap.valueProperty().addListener((observableValue, number, t1) -> {
             maxText.setText("Capacity = "+Double.toString((int) maxCap.getValue()));
         });
@@ -61,15 +54,10 @@ public class CreateVMGUI implements Initializable {
         try {
             Factory createVM = new Factory();
             String choice = vmType.getValue();
-            int SlotNum = (int) numSlots.getValue();
             int maxcap = (int) maxCap.getValue();
-
-            VM.setVM(createVM.createVendingMachine(choice, SlotNum, maxcap));
-
-            System.out.println("Choice : " + VM.getVM().getClass());
-            System.out.println("numSlots : " + SlotNum);
-            System.out.println("maxCap : " + maxcap);
-
+            System.out.println("choice : "+choice);
+            createVM.createVendingMachine(choice, maxcap);
+            VM.getCurrentVM();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("MainMenuGUI.fxml"));
             root = loader.load();
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -78,9 +66,9 @@ public class CreateVMGUI implements Initializable {
             stage.show();
         }catch (Exception e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Nuh-uh");
-            alert.setContentText("batang pasaway");
+            alert.setTitle("Vending Machine");
+            alert.setHeaderText(null);
+            alert.setContentText("Select Vending machine type!!");
             alert.showAndWait();
         }
     }

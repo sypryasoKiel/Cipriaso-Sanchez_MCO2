@@ -1,12 +1,16 @@
 public class Item {
-    private final double PRICE;
+    private double Price;
     private final String NAME;
     private final double CALORIES;
 
     public Item(double price, String name, double calories){
         this.NAME = name;
-        this.PRICE = price;
+        this.Price = price;
         this.CALORIES = calories;
+    }
+
+    public void setPrice(double price){
+        this.Price=price;
     }
 
     /**
@@ -14,7 +18,7 @@ public class Item {
      * @return price the price
      */
     public double getPrice(){
-        return this.PRICE;
+        return this.Price;
     }
 
     /**
