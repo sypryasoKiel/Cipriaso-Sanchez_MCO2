@@ -24,7 +24,7 @@ public class Slot {
 
     /**
      * adds items to the slot
-     * 
+     * @param qty the quantity of items to be added 
      * @return true if the slot has not reached maximum capacity, false otherwise
      */
     public boolean addItem(int qty){ //increments 1 item to the slot given the slot has not reached maximum capacity
@@ -44,14 +44,17 @@ public class Slot {
     public int getQuantity(){ //gets the quantity of items in this slot
         return this.Items.size();
     }
+    /**
+     * gets the maximum quantity of items in the slot
+     * @return MaxQty the maximum quantity of items in the slot
+     */
     public int getMaxQty(){
         return this.MaxQty;
     }
 
     /**
      * sells an item from the slot
-     * 
-     * @return
+     * @return true if the quantity in the slot is greater than 0, false otherwise
      */
     public boolean sellItem(){ //decrements 1 and returns true if quantity in the slot is greater than 0, else it returns false
         if(this.getQuantity()-1>=0) {

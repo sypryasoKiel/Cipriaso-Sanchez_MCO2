@@ -25,6 +25,11 @@ public class TestVMGUI {
     private Parent root;
     VMSingleton VM;
 
+    /**
+     * This method is used to buy a product
+     * @param event the event that triggers the method
+     * @throws IOException if the scene cannot be set
+     */
     public void buy(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("VMGUI.fxml"));
         root = loader.load();
@@ -34,6 +39,11 @@ public class TestVMGUI {
         stage.show();
     }
 
+    /**
+     * This method is used to maintain the vending machine
+     * @param event the event that triggers the method
+     * @throws IOException if the scene cannot be set
+     */
     public void maintain(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MaintenanceVMGUI.fxml"));
         root = loader.load();
@@ -43,6 +53,11 @@ public class TestVMGUI {
         stage.show();
     }
 
+    /**
+     * This method is used to go back to the main menu
+     * @param event the event that triggers the method
+     * @throws IOException if the scene cannot be set
+     */
     public void back(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MainMenuGUI.fxml"));
         root = loader.load();

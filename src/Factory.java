@@ -26,6 +26,11 @@ public class Factory {
         return itemList;
     }
 
+    /**
+     * Creates a vending machine
+     * @param type the tyep of vending machine
+     * @param maxcap the maximum capacity of the vending machine
+     */
     public void createVendingMachine(String type, int maxcap){
         RVMachine regular;
         SVMachine special;
