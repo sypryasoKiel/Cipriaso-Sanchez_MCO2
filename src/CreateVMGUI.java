@@ -26,6 +26,11 @@ public class CreateVMGUI implements Initializable {
     private Parent root;
     VMSingleton VM = VMSingleton.getInstance();
 
+    /**
+     * Initializes the controller class.
+     * @param url The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         vmType.getItems().addAll(types);
@@ -35,6 +40,11 @@ public class CreateVMGUI implements Initializable {
         });
     }
 
+    /**
+     * Back to main menu
+     * @param event ActionEvent
+     * @throws IOException IOException
+     */
     public void back(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MainMenuGUI.fxml"));
         root = loader.load();
@@ -45,11 +55,21 @@ public class CreateVMGUI implements Initializable {
         stage.show();
     }
 
+    /**
+     * Get data from choice box
+     * @param e ActionEvent
+     * @return choice String
+     */
     public String getData(ActionEvent e){
         String choice = vmType.getValue();
         return choice;
     }
 
+    /**
+     * Enter to vending machine
+     * @param event ActionEvent
+     * @throws IOException IOException
+     */
     public void enter(ActionEvent event) throws IOException{
         try {
             Factory createVM = new Factory();

@@ -16,6 +16,11 @@ public class MainMenuGUI{
     private Parent root;
     VMSingleton VM = VMSingleton.getInstance();
 
+    /**
+     * This method is used to open the create menu
+     * @param event the event that triggers the method
+     * @throws IOException if the scene cannot be set
+     */
     public void openCreateMenu(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateVMGUI.fxml"));
         root = loader.load();
@@ -25,6 +30,11 @@ public class MainMenuGUI{
         stage.show();
     }
 
+    /**
+     * This method is used to open the test menu
+     * @param event the event that triggers the method
+     * @throws IOException if the scene cannot be set
+     */
     public void openTestMenu(ActionEvent event) throws IOException {
         if(VM.getCurrentVM()==null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -43,6 +53,11 @@ public class MainMenuGUI{
         }
     }
 
+    /**
+     * This method is used to open the maintenance menu
+     * @param event the event that triggers the method
+     * @throws IOException if the scene cannot be set
+     */
     public void exitMainMenu(ActionEvent event) throws IOException{
         stage=(Stage)((Node)event.getSource()).getScene().getWindow();
         stage.close();

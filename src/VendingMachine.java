@@ -19,9 +19,9 @@ public class VendingMachine {
     }
 
     /**
-     * 
-     * @param money
-     * @return wallet 
+     * converts the double variable to Cash array format
+     * @param money the amount to be converted to cash array format
+     * @return wallet the value in cash array format
      */
     public Cash[] doubleToCash(double money){ //transforms a money in double format (i.e. PHP 1234.56) to cash array format (i.e. 1x 1000, 1x 200, 1x 20, 1x 10, 4x 1, 2x 0.25, 1x 0.05, 1x 0.01)
         Cash[] wallet = new Cash[12];
@@ -103,10 +103,20 @@ public class VendingMachine {
         return wallet;
     }
 
+    /**
+     * updates the product of the slot
+     * @param product the product to be updated
+     * @param slotIndex the index of the slot to be updated
+     */
     public void updateSlotProducts(Item product, int slotIndex){ //changes the product of the slot, removes all previous item in the slot
         this.slotList[slotIndex].setProduct(product);
     }
 
+    /**
+     * checks if the change can be given by the cash register
+     * @param change the change to be given
+     * @return true if the change can be given, false if not
+     */
     public boolean isChangeAvailable(Cash[] change){ //checks if change can be given by the cash register
         for(int i=0;i<CashStorage.getRegister().length;i++){
             if(change[i].getQuantity()>this.CashStorage.getRegister()[i].getQuantity())
@@ -115,10 +125,22 @@ public class VendingMachine {
         return true;
     }
 
+    /**
+     * calculates the change to be given
+     * @param payment the payment given by the user
+     * @param product the product to be bought
+     * @return change the change to be given
+     */
     public double calculateChange(double payment, Item product){
         return payment-product.getPrice();
     } //calculates the change to be produced in double format
 
+    /**
+     * produces the change to be given
+     * @param payment the payment given by the user
+     * @param product the product to be bought
+     * @return change the change to be given
+     */
     public Cash[] produceChange(double payment, Item product){ //produces the change needed to give in cash array format
         Cash[] change = doubleToCash(calculateChange(payment,product));
 
@@ -128,6 +150,12 @@ public class VendingMachine {
         return change;
     }
 
+    /**
+     * checks if the transaction is valid
+     * @param payment the payment given by the user
+     * @param slotNum the slot number of the product to be bought
+     * @return 1 if the transaction was a success, 0 if the payment was not enough, -1 if the machine cant give change, and -2 if the item is unavailable/out of stock
+     */
     public int checkBuy(double payment, int slotNum){ //checks the criteria for a transaction, returns: 1 if the transaction was a success, 0 if the payment was not enough, -1 if the machine cant give change, and -2 if the item is unavailable/out of stock
         Cash[] cashChange;
         double doubleChange;
@@ -151,6 +179,12 @@ public class VendingMachine {
         }
     }
 
+    /**
+     * buys the item
+     * @param payment the payment given by the user
+     * @param slotNum the slot number of the product to be bought by the user
+     * @return 1 if the transaction was a success, 0 if the payment was not enough, -1 if the machine cant give change, and -2 if the item is unavailable/out of stock
+     */
     public int buyItem(double payment, int slotNum){ //makes a transaction log and sells the actual item, returns the criteria to be handled by the controller
         int checkbuy;
 
@@ -179,6 +213,10 @@ public class VendingMachine {
         }
     }
 
+    /**
+     * gets the transactions
+     * @return the transactions
+     */
     public int[] getQuantities(){ //gets the quantities of the items and store them in an int array, to be used for checking initial and current number of stocks
         int slotLength = this.slotList.length;
         int[] quantities = new int[slotLength];

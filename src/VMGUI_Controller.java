@@ -28,6 +28,11 @@ public class VMGUI_Controller implements Initializable{
     VMSingleton VM = VMSingleton.getInstance();
     private double counter = 0;
 
+    /**
+     * This method is used to initialize the vending machine
+     * @param url the url to be used
+     * @param resourceBundle the resource bundle to be used
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         VMPanel.setGridLinesVisible(true);
@@ -45,6 +50,10 @@ public class VMGUI_Controller implements Initializable{
         }
     }
 
+    /**
+     * This method is used to get the data from the button
+     * @param event the event to be used
+     */
     @FXML
     public void buttonClick(ActionEvent event){
         Button button = (Button) event.getSource();
@@ -52,6 +61,10 @@ public class VMGUI_Controller implements Initializable{
         paidTextPane.setText("Paid : "+counter);
     }
 
+    /**
+     * This method is used to get the data from the enter button
+     * @param event the event to be used
+     */
     public void enterClick(ActionEvent event){
         Button button = (Button) event.getSource();
         paidTextPane.setText("Paid : ");
