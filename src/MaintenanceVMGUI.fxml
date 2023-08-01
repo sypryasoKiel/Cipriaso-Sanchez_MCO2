@@ -36,11 +36,21 @@
                               <ChoiceBox fx:id="choiceBox" prefWidth="150.0" />
                            </children>
                         </HBox>
-                        <ScrollPane fx:id="restockScroll" layoutX="397.0" layoutY="436.0" prefHeight="200.0" prefWidth="200.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="300.0">
+                        <ScrollPane fx:id="restockScroll" layoutX="350.0" layoutY="355.0" prefHeight="200.0" prefWidth="200.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="355.0">
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="348.0" prefWidth="281.0" />
                           </content>
                         </ScrollPane>
+                        <Label alignment="CENTER" layoutX="539.0" layoutY="309.0" prefHeight="46.0" prefWidth="96.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="Max Qty:">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="449.0" layoutY="309.0" prefHeight="46.0" prefWidth="96.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="Current Qty:">
+                           <font>
+                              <Font name="Arial Black" size="13.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
             </content>

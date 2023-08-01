@@ -10,12 +10,11 @@ public class VendingMachine {
         this.Transactions = new ArrayList<>();
     }
 
-    public void setSlotList(Slot[] slotList){
-        this.slotList = slotList;
-    }
-
     public Slot[] getSlotList(){
         return slotList;
+    }
+    public ArrayList<Transaction> getTransactions(){
+        return this.Transactions;
     }
 
     /**
@@ -103,10 +102,6 @@ public class VendingMachine {
         return wallet;
     }
 
-    public void updateSlotProducts(Item product, int slotIndex){ //changes the product of the slot, removes all previous item in the slot
-        this.slotList[slotIndex].setProduct(product);
-    }
-
     public boolean isChangeAvailable(Cash[] change){ //checks if change can be given by the cash register
         for(int i=0;i<CashStorage.getRegister().length;i++){
             if(change[i].getQuantity()>this.CashStorage.getRegister()[i].getQuantity())
@@ -132,7 +127,7 @@ public class VendingMachine {
         Cash[] cashChange;
         double doubleChange;
 
-        doubleChange = calculateChange(payment, slotList[slotNum-1].getProduct());
+        doubleChange = calculateChange(payment, slotList[slotNum].getProduct());
 
         if(doubleChange<0){ //checks if the payment is less than the price of the item
             return 0;
@@ -140,7 +135,7 @@ public class VendingMachine {
         else{
             cashChange = doubleToCash(doubleChange);
             if(isChangeAvailable(cashChange)){ //checks if the machine can provide change
-                if(this.slotList[slotNum-1].sellItem()){ //checks if the item is available
+                if(this.slotList[slotNum].sellItem()){ //checks if the item is available
                     return 1;
                 }
                 else
@@ -158,8 +153,8 @@ public class VendingMachine {
 
         switch(checkbuy){
             case 1:
-                this.slotList[slotNum-1].sellItem();
-                this.Transactions.add(new Transaction("Sold Item",this.slotList[slotNum].getProduct(),produceChange(payment,slotList[slotNum-1].getProduct())));
+                this.slotList[slotNum].sellItem();
+                this.Transactions.add(new Transaction("Sold Item",this.slotList[slotNum].getProduct(),produceChange(payment,slotList[slotNum].getProduct())));
                 return 1;
 
             case 0:
@@ -177,16 +172,6 @@ public class VendingMachine {
             default:
                 return -3;
         }
-    }
-
-    public int[] getQuantities(){ //gets the quantities of the items and store them in an int array, to be used for checking initial and current number of stocks
-        int slotLength = this.slotList.length;
-        int[] quantities = new int[slotLength];
-
-        for(int i=0;i<slotLength;i++){
-            quantities[i] = this.slotList[i].getQuantity();
-        }
-        return quantities;
     }
 }
 

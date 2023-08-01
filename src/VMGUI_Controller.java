@@ -1,61 +1,111 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-import java.awt.*;
+import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class VMGUI_Controller implements Initializable{
+
+public class VMGUI_Controller implements Initializable {
 
     @FXML
     private GridPane VMPanel;
-
     @FXML
     private TextField paidTextPane;
+    @FXML
+    private TextField itemPane;
+    @FXML
+    private TextArea itemDescPane;
+    @FXML
+    private TextField pricePane;
+    private int slotPicked;
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
     VMSingleton VM = VMSingleton.getInstance();
     private double counter = 0;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        VMPanel.setGridLinesVisible(true);
-        VBox_Controller vfactory = new VBox_Controller();
-        VBox[] box = new VBox[15];
 
-        for(int i=0;i<15;i++){
-            box[i]=vfactory.frameFactory(VM.getCurrentVM().getSlotList()[i].getProduct().getName(),new Button(String.valueOf(i+1)));
-        }
-
-        for(int i=0;i<3;i++){
-            for(int j=0;j<5;j++){
-                VMPanel.add(box[i*5+j],i,j);
-            }
-        }
     }
 
     @FXML
     public void buttonClick(ActionEvent event){
         Button button = (Button) event.getSource();
         counter += Double.parseDouble(button.getText());
-        paidTextPane.setText("Paid : "+counter);
+        paidTextPane.setText("Paid : "+String.format("%.2f",counter));
     }
 
-    public void enterClick(ActionEvent event){
+    public void itemClick(ActionEvent event){
+        int choice;
         Button button = (Button) event.getSource();
-        paidTextPane.setText("Paid : ");
-        counter = 0;
+        String[] items = {"Egg","Flour","Chocolate","Butter","Vanilla Extract","Baking Powder","Milk",
+                            "Rainbow Sprinkles","Chocolate Chips","Sugar","Chocolate Cake",
+                            "Black Forest Cake","Cornbread Muffin","Vanilla Cupcake","Baguette"};
+
+        String[] itemDesc = {"An ordinary egg, wow","Used for baking and... deep frying?","Dark is the best flavor fight me!","Smooth like butter\nlike a criminal undercover","That one Owl City song","Pinagkaiba nito sa baking soda?"
+                ,"Tambay sa ref", "#Pride","Kulang sa cookies fr","Yoko sa maroon 5","mmmmmfgh...",
+                "overrated but oks naman basta libre sa bday","I believe in Kenny Rogers Supremacy","Ew? basic..","BAGUETTEEEEEEEEE"};
+
+        choice = Integer.parseInt(button.getText());
+        System.out.println("choice : "+choice);
+        if(choice!=1) {
+            this.slotPicked = choice - 1;
+        }
+        System.out.println("slotPicked : "+slotPicked);
+        itemPane.setText("Selected Item : "+items[slotPicked]);
+        itemDescPane.setText("Description : "+itemDesc[slotPicked]);
+        pricePane.setText("Price : "+VM.getCurrentVM().getSlotList()[slotPicked].getProduct().getPrice());
+
+    }
+
+    public void buy(ActionEvent event) throws IOException{
+        BuySuccess_Controller loading = new BuySuccess_Controller();
+        double payment;
+        int result;
+
+        payment=Double.parseDouble(paidTextPane.getText().substring(6));
+        System.out.println("slotPicked : "+slotPicked);
+        result = VM.getCurrentVM().buyItem(payment,slotPicked);
+
+        if(result==1){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("BuySuccess.fxml"));
+            root = loader.load();
+            stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        else if(result==0){
+            System.out.println("oof");
+        }
+        else if(result==-1){
+            System.out.println("oof grabe");
+        }
+        else if(result==-2){
+            System.out.println("wawa ka naman");
+        }
+    }
+
+    public void back(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("TestVMGUI.fxml"));
+        root = loader.load();
+        stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
 
