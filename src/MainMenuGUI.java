@@ -6,7 +6,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.io.IOException;
 
 public class MainMenuGUI{
@@ -36,7 +35,7 @@ public class MainMenuGUI{
      * @throws IOException if the scene cannot be set
      */
     public void openTestMenu(ActionEvent event) throws IOException {
-        if(VM.getCurrentVM()==null) {
+        if(VM.getVM()==null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Vending Machine");
             alert.setHeaderText(null);

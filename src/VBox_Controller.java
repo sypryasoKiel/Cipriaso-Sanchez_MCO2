@@ -26,15 +26,16 @@ public class VBox_Controller {
         returnedCash.getColumnConstraints().addAll(columnConstraints1,columnConstraints2);
         returnedCash.setGridLinesVisible(true);
 
-        textbox.setText("Transaction Type : "+transaction.getTransactionType()+"\nProduct : "+transaction.getProduct()+"\nReturned Cash : ");
+        textbox.setPrefRowCount(3);
+        textbox.setText("Transaction Type : "+transaction.getTransactionType()+"\nProduct : "+transaction.getProductName()+"\nReturned Cash : ");
 
         for(int i=0;i<transaction.getReturnedCash().length;i++){
-            for(int j=0;j<2;i++){
-                if(j==1&&(transaction.getReturnedCash()[i].getQuantity()!=0)){
-                    returnedCash.add(new Label(String.valueOf(transaction.getReturnedCash()[i].getQuantity())),i,j);
+            for(int j=0;j<2;j++){
+                if(j==1){
+                    returnedCash.add(new Label(String.valueOf(transaction.getReturnedCash()[i].getQuantity())),j,i);
                 }
                 else{
-                    returnedCash.add(new Label(String.valueOf(transaction.getReturnedCash()[i].getDenomination())),i,j);
+                    returnedCash.add(new Label(String.valueOf(transaction.getReturnedCash()[i].getDenomination())),j,i);
                 }
             }
         }

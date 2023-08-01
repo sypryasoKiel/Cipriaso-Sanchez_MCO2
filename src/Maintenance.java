@@ -16,14 +16,7 @@ public class Maintenance{
      * @param price the price
      */
     public void setItemPrice(double price,int slotNum){
-        VM.getCurrentVM().getSlotList()[slotNum].getProduct().setPrice(price);
-    }
-
-    /**
-     * refills the stock of that slot
-     */
-    public void refillStock(int qty, int slotNum){
-        VM.getCurrentVM().getSlotList()[slotNum-1].addItem(qty);
+        VM.getVM().getSlotList()[slotNum].getProduct().setPrice(price);
     }
 
     /**
@@ -42,7 +35,7 @@ public class Maintenance{
     public String getTransactionHistory(){
         String transactionHistory = "";
         for(int i=0;i<transactionCount;i++){
-            transactionHistory += transactions[i].getProduct() + " "+ transactions[i].getTransactionType() + "\n";
+            transactionHistory += transactions[i].getProductName() + " "+ transactions[i].getTransactionType() + "\n";
         }
         return transactionHistory;
     }
@@ -65,6 +58,4 @@ public class Maintenance{
             registers[i].addCash(cash[i]);
         }
     }
-
-    
 }

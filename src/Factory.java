@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class Factory {
     private VendingMachine VM;
     VMSingleton vm = VMSingleton.getInstance();
@@ -37,7 +35,7 @@ public class Factory {
         Slot[] slotList = new Slot[15];
         Item[] items = itemInit();
 
-        vm.deleteCurrentVM();
+        vm.deleteVM();
 
         for(int i=0;i<15;i++){
             slotList[i] = new Slot(maxcap);
@@ -48,12 +46,12 @@ public class Factory {
         switch(type){
             case "Regular":
                 regular=new RVMachine(slotList);
-                vm.setCurrentVM(regular);
+                vm.setupVM(regular);
                 break;
 
             case "Special":
                 special=new SVMachine(slotList);
-                vm.setCurrentVM(special);
+                vm.setupVM(special);
                 break;
 
             default:

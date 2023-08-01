@@ -1,10 +1,10 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -12,11 +12,9 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 
-public class VMGUI_Controller implements Initializable {
+public class VMGUI_Controller {
 
     @FXML
     private GridPane VMPanel;
@@ -36,16 +34,13 @@ public class VMGUI_Controller implements Initializable {
     VMSingleton VM = VMSingleton.getInstance();
     private double counter = 0;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
 
-    }
 
     @FXML
     public void buttonClick(ActionEvent event){
         Button button = (Button) event.getSource();
         counter += Double.parseDouble(button.getText());
-        paidTextPane.setText("Paid : "+String.format("%.2f",counter));
+        paidTextPane.setText(String.valueOf(String.format("%.2f",counter)));
     }
 
     public void itemClick(ActionEvent event){
@@ -67,18 +62,27 @@ public class VMGUI_Controller implements Initializable {
         System.out.println("slotPicked : "+slotPicked);
         itemPane.setText("Selected Item : "+items[slotPicked]);
         itemDescPane.setText("Description : "+itemDesc[slotPicked]);
-        pricePane.setText("Price : "+VM.getCurrentVM().getSlotList()[slotPicked].getProduct().getPrice());
+        pricePane.setText(String.valueOf(VM.getVM().getSlotList()[slotPicked].getProduct().getPrice()));
 
     }
 
     public void buy(ActionEvent event) throws IOException{
-        BuySuccess_Controller loading = new BuySuccess_Controller();
         double payment;
-        int result;
+        int result=2;
 
-        payment=Double.parseDouble(paidTextPane.getText().substring(6));
-        System.out.println("slotPicked : "+slotPicked);
-        result = VM.getCurrentVM().buyItem(payment,slotPicked);
+        try {
+            if (pricePane.getText().length() != 0) {
+                payment = Double.parseDouble(paidTextPane.getText());
+                System.out.println("slotPicked : " + slotPicked);
+                result = VM.getVM().buyItem(payment, slotPicked);
+            }
+        } catch (NumberFormatException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Vending Machine");
+            alert.setHeaderText(null);
+            alert.setContentText("Insert Cash!!");
+            alert.showAndWait();
+        }
 
         if(result==1){
             FXMLLoader loader = new FXMLLoader(getClass().getResource("BuySuccess.fxml"));
@@ -107,7 +111,4 @@ public class VMGUI_Controller implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
-
-
 }

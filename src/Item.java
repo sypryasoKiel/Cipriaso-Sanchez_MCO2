@@ -9,8 +9,12 @@ public class Item {
         this.CALORIES = calories;
     }
 
-    public void setPrice(double price){
-        this.Price=price;
+    public boolean setPrice(double price){
+        if(price>0) {
+            this.Price = price;
+            return true;
+        }
+        return false;
     }
 
     /**

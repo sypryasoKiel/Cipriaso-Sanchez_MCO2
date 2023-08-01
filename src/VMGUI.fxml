@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Point3D?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -54,12 +55,12 @@
          </children>
       </GridPane>
       <Pane layoutX="677.0" layoutY="77.0" prefHeight="200.0" prefWidth="0.0" />
-      <TextField fx:id="pricePane" editable="false" layoutX="650.0" layoutY="132.0" onAction="#itemClick" prefHeight="30.0" prefWidth="300.0" text="Price : ">
+      <TextField fx:id="pricePane" editable="false" layoutX="651.0" layoutY="190.0" onAction="#itemClick" prefHeight="30.0" prefWidth="300.0">
          <font>
             <Font name="Arial Black" size="21.0" />
          </font>
       </TextField>
-      <TextField fx:id="paidTextPane" editable="false" layoutX="650.0" layoutY="189.0" prefHeight="30.0" prefWidth="300.0" text="Paid : ">
+      <TextField fx:id="paidTextPane" editable="false" layoutX="651.0" layoutY="93.0" prefHeight="30.0" prefWidth="300.0">
          <font>
             <Font name="Arial Black" size="21.0" />
          </font>
@@ -212,5 +213,15 @@
             <Font size="20.0" />
          </font>
       </TextArea>
+      <Label layoutX="651.0" layoutY="41.0" prefHeight="52.0" prefWidth="116.0" text="Paid : ">
+         <font>
+            <Font name="Arial Black" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="651.0" layoutY="138.0" prefHeight="52.0" prefWidth="116.0" text="Price : ">
+         <font>
+            <Font name="Arial Black" size="30.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

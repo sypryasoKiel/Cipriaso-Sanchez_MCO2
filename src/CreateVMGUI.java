@@ -48,7 +48,6 @@ public class CreateVMGUI implements Initializable {
     public void back(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MainMenuGUI.fxml"));
         root = loader.load();
-        MainMenuGUI mainMenu = loader.getController();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -77,7 +76,7 @@ public class CreateVMGUI implements Initializable {
             int maxcap = (int) maxCap.getValue();
             System.out.println("choice : "+choice);
             createVM.createVendingMachine(choice, maxcap);
-            VM.getCurrentVM();
+            VM.getVM();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("MainMenuGUI.fxml"));
             root = loader.load();
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

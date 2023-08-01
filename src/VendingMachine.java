@@ -16,6 +16,9 @@ public class VendingMachine {
     public ArrayList<Transaction> getTransactions(){
         return this.Transactions;
     }
+    public CashRegister getCashStorage() {
+        return CashStorage;
+    }
 
     /**
      * 
@@ -85,18 +88,20 @@ public class VendingMachine {
             money-=wallet[8].getQuantity();
         }
 
-        if(money>=0.25){
-            wallet[9].addQuantity((int) money*100/25);
-            money-=0.25*wallet[9].getQuantity();
+        if(money >= 0.25){
+            int temp = (int) (money*100/25);
+            wallet[9].addQuantity(temp);
+            money-=0.25*temp;
         }
-
-        if(money>=0.05){
-            wallet[10].addQuantity((int) money*100/5);
-            money-=0.05*wallet[10].getQuantity();
+        if(money >= 0.05){
+            int temp = (int) (money*100/5);
+            wallet[10].addQuantity(temp);
+            money-=0.05*temp;
         }
-
-        if(money>=0.01){
-            wallet[11].addQuantity((int) money*100);
+        if(money >= 0.01){
+            money*=100;
+            int temp=(int) money;
+            wallet[11].addQuantity(temp);
         }
 
         return wallet;
@@ -154,19 +159,19 @@ public class VendingMachine {
         switch(checkbuy){
             case 1:
                 this.slotList[slotNum].sellItem();
-                this.Transactions.add(new Transaction("Sold Item",this.slotList[slotNum].getProduct(),produceChange(payment,slotList[slotNum].getProduct())));
+                this.Transactions.add(new Transaction("Sold Item",this.slotList[slotNum].getProduct().getName(),produceChange(payment,slotList[slotNum].getProduct())));
                 return 1;
 
             case 0:
-                this.Transactions.add(new Transaction("Refunded - Not Enough Money",this.slotList[slotNum].getProduct(),doubleToCash(payment)));
+                this.Transactions.add(new Transaction("Refunded - Not Enough Money",this.slotList[slotNum].getProduct().getName(),doubleToCash(payment)));
                 return 0;
 
             case -1:
-                this.Transactions.add(new Transaction("Refunded - Item Unavailable",this.slotList[slotNum].getProduct(),doubleToCash(payment)));
+                this.Transactions.add(new Transaction("Refunded - Item Unavailable",this.slotList[slotNum].getProduct().getName(),doubleToCash(payment)));
                 return -1;
 
             case -2:
-                this.Transactions.add(new Transaction("Refunded - Not Enough Change",this.slotList[slotNum].getProduct(),doubleToCash(payment)));
+                this.Transactions.add(new Transaction("Refunded - Not Enough Change",this.slotList[slotNum].getProduct().getName(),doubleToCash(payment)));
                 return -2;
 
             default:

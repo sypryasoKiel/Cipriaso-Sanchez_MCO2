@@ -1,14 +1,19 @@
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
+import javafx.stage.Stage;
 
-import javax.swing.*;
-import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -18,6 +23,11 @@ public class BuySuccess_Controller implements Initializable {
     private Label changePane;
     @FXML
     private ScrollPane receiptPane;
+    @FXML
+    private Button backButton;
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
     VMSingleton VM = VMSingleton.getInstance();
 
     @Override
@@ -33,26 +43,38 @@ public class BuySuccess_Controller implements Initializable {
         GridPane grid3 = new GridPane();
         grid3.getColumnConstraints().addAll(columnConstraints4,columnConstraints5);
 
-        System.out.println("Denom : "+VM.getCurrentVM().getTransactions().get(VM.getCurrentVM().getTransactions().size()-1).getReturnedCash()[0].getDenomination());
-        System.out.println("Denom : "+VM.getCurrentVM().getTransactions().get(VM.getCurrentVM().getTransactions().size()-1).getReturnedCash()[0].getQuantity());
+        System.out.println("Denom : "+VM.getVM().getTransactions().get(VM.getVM().getTransactions().size()-1).getReturnedCash()[0].getDenomination());
+        System.out.println("Denom : "+VM.getVM().getTransactions().get(VM.getVM().getTransactions().size()-1).getReturnedCash()[0].getQuantity());
 
-        for(int i=0;i<VM.getCurrentVM().getTransactions().get(VM.getCurrentVM().getTransactions().size()-1).getReturnedCash().length;i++){
+        for(int i = 0; i<VM.getVM().getTransactions().get(VM.getVM().getTransactions().size()-1).getReturnedCash().length; i++){
             for(int j=0;j<2;j++){
                 if(j==0){
-                    grid3.add(new Label("PHP "+VM.getCurrentVM().getTransactions().get(VM.getCurrentVM().getTransactions().size()-1).getReturnedCash()[i].getDenomination()),j,i);
+                    grid3.add(new Label("PHP "+VM.getVM().getTransactions().get(VM.getVM().getTransactions().size()-1).getReturnedCash()[i].getDenomination()),j,i);
                 }
                 else{
-                    grid3.add(new Label("x "+VM.getCurrentVM().getTransactions().get(VM.getCurrentVM().getTransactions().size()-1).getReturnedCash()[i].getQuantity()),j,i);
+                    grid3.add(new Label("x "+VM.getVM().getTransactions().get(VM.getVM().getTransactions().size()-1).getReturnedCash()[i].getQuantity()),j,i);
                 }
             }
         }
-        for(int i=0;i<VM.getCurrentVM().getTransactions().get(VM.getCurrentVM().getTransactions().size()-1).getReturnedCash().length;i++){
-            totalChange+=VM.getCurrentVM().getTransactions().get(VM.getCurrentVM().getTransactions().size()-1).getReturnedCash()[i].getDenomination()*VM.getCurrentVM().getTransactions().get(VM.getCurrentVM().getTransactions().size()-1).getReturnedCash()[i].getQuantity();
+        for(int i = 0; i<VM.getVM().getTransactions().get(VM.getVM().getTransactions().size()-1).getReturnedCash().length; i++){
+            totalChange+=VM.getVM().getTransactions().get(VM.getVM().getTransactions().size()-1).getReturnedCash()[i].getDenomination()*VM.getVM().getTransactions().get(VM.getVM().getTransactions().size()-1).getReturnedCash()[i].getQuantity();
         }
+
+
 
         receiptPane.setContent(grid3);
         receiptPane.setFitToWidth(true);
         receiptPane.setFitToHeight(false);
-        changePane.setText("Change : PHP "+totalChange);
+        changePane.setText("Change : PHP "+String.format("%.2f",totalChange));
     }
+
+    public void back(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("TestVMGUI.fxml"));
+        root = loader.load();
+        stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
 }

@@ -8,7 +8,6 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -29,28 +28,24 @@
                               </Label>
                            </children>
                         </VBox>
-                        <HBox layoutX="281.0" layoutY="198.0" prefHeight="100.0" prefWidth="432.0">
-                           <children>
-                              <Button fx:id="restockButton" mnemonicParsing="false" onAction="#restock" prefHeight="40.0" prefWidth="70.0" text="Restock" />
-                              <TextField fx:id="restockField" prefHeight="40.0" prefWidth="200.0" />
-                              <ChoiceBox fx:id="choiceBox" prefWidth="150.0" />
-                           </children>
-                        </HBox>
-                        <ScrollPane fx:id="restockScroll" layoutX="350.0" layoutY="355.0" prefHeight="200.0" prefWidth="200.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="355.0">
+                        <ScrollPane fx:id="restockScroll" layoutX="212.0" layoutY="281.0" prefHeight="200.0" prefWidth="200.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="119.0" AnchorPane.leftAnchor="212.0" AnchorPane.rightAnchor="488.0" AnchorPane.topAnchor="281.0">
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="348.0" prefWidth="281.0" />
                           </content>
                         </ScrollPane>
-                        <Label alignment="CENTER" layoutX="539.0" layoutY="309.0" prefHeight="46.0" prefWidth="96.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="Max Qty:">
+                        <Label alignment="CENTER" layoutX="400.0" layoutY="236.0" prefHeight="46.0" prefWidth="96.0" style="-fx-background-color: #FFFFFF;" text="Max Qty:">
                            <font>
                               <Font name="Arial Black" size="12.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" layoutX="449.0" layoutY="309.0" prefHeight="46.0" prefWidth="96.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="Current Qty:">
+                        <Label alignment="CENTER" layoutX="304.0" layoutY="236.0" prefHeight="46.0" prefWidth="96.0" style="-fx-background-color: #FFFFFF;" text="Current Qty:">
                            <font>
                               <Font name="Arial Black" size="13.0" />
                            </font>
                         </Label>
+                        <ChoiceBox fx:id="choiceBox" layoutX="542.0" layoutY="293.0" prefWidth="150.0" />
+                        <Button fx:id="restockButton" layoutX="739.0" layoutY="245.0" mnemonicParsing="false" onAction="#restock" prefHeight="40.0" prefWidth="70.0" text="Restock" />
+                        <TextField fx:id="restockField" layoutX="541.0" layoutY="245.0" prefHeight="40.0" prefWidth="200.0" />
                      </children>
                   </AnchorPane>
             </content>
@@ -68,18 +63,90 @@
                               </Label>
                            </children>
                         </VBox>
-                        <ScrollPane fx:id="scrollPane" fitToWidth="true" layoutX="428.0" layoutY="361.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="200.0" />
+                        <ScrollPane fx:id="scrollPane" fitToWidth="true" layoutX="428.0" layoutY="361.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="200.0" />
                      </children></AnchorPane>
               </content>
             </Tab>
             <Tab text="Get Cash">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <children>
+                              <Label text="Get Cash">
+                                 <font>
+                                    <Font name="Arial Black" size="60.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <TextField fx:id="cashText" layoutX="492.0" layoutY="309.0" prefHeight="44.0" prefWidth="240.0" />
+                        <Button fx:id="getCash" layoutX="730.0" layoutY="309.0" mnemonicParsing="false" onAction="#getCash" prefHeight="44.0" prefWidth="67.0" text="Get" />
+                        <ScrollPane fx:id="cashPane" layoutX="193.0" layoutY="266.0" prefHeight="265.0" prefWidth="223.0" AnchorPane.bottomAnchor="247.5" AnchorPane.leftAnchor="184.0" AnchorPane.rightAnchor="593.0" AnchorPane.topAnchor="256.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="245.0" prefWidth="220.0" />
+                          </content>
+                        </ScrollPane>
+                     </children></AnchorPane>
               </content>
             </Tab>
             <Tab text="Refill Register">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="CENTER" layoutX="450.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="568.5" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label text="Refill Register">
+                                 <font>
+                                    <Font name="Arial Black" size="60.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <TextField fx:id="refillText" layoutX="492.0" layoutY="309.0" prefHeight="44.0" prefWidth="240.0" AnchorPane.bottomAnchor="415.5" AnchorPane.leftAnchor="492.0" AnchorPane.rightAnchor="268.0" AnchorPane.topAnchor="309.0" />
+                        <Button layoutX="730.0" layoutY="309.0" mnemonicParsing="false" onAction="#refillRegister" prefHeight="44.0" prefWidth="67.0" text="Refill" />
+                        <ScrollPane fx:id="cashPane1" layoutX="194.0" layoutY="266.0" prefHeight="265.0" prefWidth="223.0" AnchorPane.bottomAnchor="247.5" AnchorPane.leftAnchor="184.0" AnchorPane.rightAnchor="593.0" AnchorPane.topAnchor="256.0">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="250.0" prefWidth="220.0" />
+                           </content>
+                        </ScrollPane>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Set Item Price">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="CENTER" layoutX="337.0" layoutY="137.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label alignment="CENTER" text="Set Item Price">
+                                 <font>
+                                    <Font name="Arial Black" size="60.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <ScrollPane fx:id="pricePane" fitToHeight="true" fitToWidth="true" layoutX="388.0" layoutY="344.0" prefHeight="308.0" prefWidth="287.0" AnchorPane.bottomAnchor="117.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="500.0" AnchorPane.topAnchor="344.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="262.0" prefWidth="220.0" />
+                          </content>
+                        </ScrollPane>
+                        <TextField fx:id="priceText" layoutX="345.0" layoutY="279.0" prefHeight="44.0" prefWidth="240.0" AnchorPane.leftAnchor="350.0" />
+                        <Button fx:id="setButton" layoutX="583.0" layoutY="279.0" mnemonicParsing="false" onAction="#setPrice" prefHeight="44.0" prefWidth="67.0" text="Set" AnchorPane.rightAnchor="350.0" />
+                        <ChoiceBox fx:id="slotChoice" layoutX="540.0" layoutY="344.0" prefWidth="150.0" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Back">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="backButton" layoutX="350.0" layoutY="333.0" mnemonicParsing="false" onAction="#back" prefHeight="100.0" prefWidth="300.0" text="Back" AnchorPane.bottomAnchor="335.5" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="354.0" AnchorPane.topAnchor="333.0">
+                           <font>
+                              <Font name="Arial Black" size="36.0" />
+                           </font>
+                        </Button>
+                     </children></AnchorPane>
               </content>
             </Tab>
         </tabs>
