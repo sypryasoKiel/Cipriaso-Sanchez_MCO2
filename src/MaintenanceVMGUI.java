@@ -45,6 +45,10 @@ public class MaintenanceVMGUI implements Initializable {
     VMSingleton VM = VMSingleton.getInstance();
     private VBox_Controller vfactory = new VBox_Controller();
 
+    /**
+     * This method is called when the user clicks on the button.
+     * @param event the event that triggers the method
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         int ctr = 0;
@@ -178,16 +182,30 @@ public class MaintenanceVMGUI implements Initializable {
         pricePane.setFitToHeight(true);
         pricePane.setFitToWidth(true);
     }
+    /**
+     * This method is used to get the data from the choice box
+     * @param e ActionEvent
+     * @return String the data from the choice box
+     */
     public String getData(ActionEvent e){
         String choice = choiceBox.getValue();
         return choice;
     }
 
+    /**
+     * This method is used to get the choice
+     * @param slotChoice ChoiceBox
+     * @return String the choice
+     */
     public String getChoice(ChoiceBox<String> slotChoice){
         String choice =slotChoice.getValue();
         return choice;
     }
-
+    /**
+     * restock button
+     * @param e ActionEvent
+     * @throws IOException IOException
+     */
     public void restock(ActionEvent e) throws IOException {
         int qty;
         int slot;
@@ -224,6 +242,11 @@ public class MaintenanceVMGUI implements Initializable {
         }
     }
 
+    /**
+     * get cash button
+     * @param event ActionEvent
+     * @throws IOException IOException
+     */
     public void getCash(ActionEvent event) throws IOException{
         double test,cash;
         Cash[] wallet;
@@ -270,6 +293,11 @@ public class MaintenanceVMGUI implements Initializable {
 
     }
 
+    /**
+     * refill register button
+     * @param event ActionEvent
+     * @throws IOException IOException
+     */
     public void refillRegister(ActionEvent event) throws IOException {
         double test, cash;
         Cash[] wallet;
@@ -304,6 +332,11 @@ public class MaintenanceVMGUI implements Initializable {
         stage.show();
     }
 
+    /**
+     * set price button
+     * @param event ActionEvent
+     * @throws IOException IOException
+     */
     public void setPrice(ActionEvent event) throws IOException{
         double price;
         int slot;
@@ -340,6 +373,11 @@ public class MaintenanceVMGUI implements Initializable {
             alert.showAndWait();
         }
     }
+    /**
+     * back button
+     * @param event ActionEvent
+     * @throws IOException IOException
+     */
     public void back(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MainMenuGUI.fxml"));
         root = loader.load();

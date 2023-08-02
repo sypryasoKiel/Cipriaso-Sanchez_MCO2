@@ -30,6 +30,11 @@ public class BuySuccess_Controller implements Initializable {
     private Parent root;
     VMSingleton VM = VMSingleton.getInstance();
 
+    /**
+     * this methond initializes the scene
+     * @param url the url of the scene
+     * @param resourceBundle the resource bundle of the scene
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         double totalChange=0;
@@ -68,6 +73,11 @@ public class BuySuccess_Controller implements Initializable {
         changePane.setText("Change : PHP "+String.format("%.2f",totalChange));
     }
 
+    /**
+     * the back button
+     * @param event the event of the button
+     * @throws IOException throws an exception if the file is not found
+     */
     public void back(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("TestVMGUI.fxml"));
         root = loader.load();

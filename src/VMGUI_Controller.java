@@ -37,7 +37,10 @@ public class VMGUI_Controller {
     private double counter = 0;
 
 
-
+    /**
+     * This method is called when the user clicks on the button.
+     * @param event the event that triggers the method
+     */
     @FXML
     public void buttonClick(ActionEvent event){
         Button button = (Button) event.getSource();
@@ -45,6 +48,10 @@ public class VMGUI_Controller {
         paidTextPane.setText(String.valueOf(String.format("%.2f",counter)));
     }
 
+    /**
+     * This method is called when the user clicks on the item.
+     * @param event the event that triggers the method
+     */
     public void itemClick(ActionEvent event){
         int choice;
         Button button = (Button) event.getSource();
@@ -70,6 +77,11 @@ public class VMGUI_Controller {
 
     }
 
+    /**
+     * This method is called when the user clicks on the buy button.
+     * @param event the event that triggers the method
+     * @throws IOException if the file is not found
+     */
     public void buy(ActionEvent event) throws IOException{
         double payment;
         int result=2;
@@ -141,6 +153,11 @@ public class VMGUI_Controller {
         }
     }
 
+    /**
+     * This method is called when the user clicks on the back button.
+     * @param event the event that triggers the method
+     * @throws IOException if the file is not found
+     */
     public void back(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("TestVMGUI.fxml"));
         root = loader.load();

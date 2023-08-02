@@ -1,3 +1,4 @@
+
 public class Cash {
     private final double DENOMINATION;
     private int Quantity;
@@ -17,7 +18,7 @@ public class Cash {
 
     /**
      * adds quantity to the cash
-     * @param qty
+     * @param qty the quantity to be added
      */
     public void addQuantity(int qty){
         if(qty>=1){
@@ -27,7 +28,7 @@ public class Cash {
 
     /**
      * removes quantity from the cash
-     * @param qty
+     * @param qty the quantity to be removed
      */
     public void removeQuantity(int qty){
         if(qty>=1 && (this.Quantity-qty)>=0){

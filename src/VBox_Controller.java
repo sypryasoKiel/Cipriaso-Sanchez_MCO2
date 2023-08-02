@@ -11,6 +11,11 @@ public class VBox_Controller {
     private VBox slotFrame;
     VMSingleton VM = VMSingleton.getInstance();
 
+    /**
+     * produces the receipt of the transaction
+     * @param transaction the transaction to be printed
+     * @return initial the receipt
+     */
     public VBox transactionFactory(Transaction transaction){
         VBox initial = new VBox();
         TextArea textbox = new TextArea();

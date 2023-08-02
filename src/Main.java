@@ -1,3 +1,7 @@
+/**
+ * Authors: Sanchez, Jeck Danielle S. and Cipriaso, James Kielson
+ * Section: S11B
+ */
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
