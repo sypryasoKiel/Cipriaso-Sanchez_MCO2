@@ -35,6 +35,8 @@ public class MaintenanceVMGUI implements Initializable {
     private TextField priceText;
     @FXML
     private ChoiceBox<String> slotChoice;
+    @FXML
+    private ScrollPane pricePane;
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -157,6 +159,24 @@ public class MaintenanceVMGUI implements Initializable {
         cashPane1.setFitToHeight(true);
         cashPane1.setFitToWidth(true);
 
+        GridPane grid5 = new GridPane();
+        grid5.getColumnConstraints().addAll(columnConstraints4,columnConstraints5);
+        grid5.setGridLinesVisible(true);
+
+        for(int i = 0; i<VM.getVM().getCashStorage().getRegister().length; i++){
+            for(int j=0;j<2;j++){
+                if(j==0){
+                    grid5.add(new Label(VM.getVM().getSlotList()[i].getProduct().getName()),j,i);
+                }
+                else{
+                    grid5.add(new Label("PHP "+(VM.getVM().getSlotList()[i].getProduct().getPrice())),j,i);
+                }
+            }
+        }
+
+        pricePane.setContent(grid5);
+        pricePane.setFitToHeight(true);
+        pricePane.setFitToWidth(true);
     }
     public String getData(ActionEvent e){
         String choice = choiceBox.getValue();
@@ -289,8 +309,8 @@ public class MaintenanceVMGUI implements Initializable {
         int slot;
 
         try{
-            slot = Integer.parseInt(choiceBox.getValue())-1;
-            price=Double.parseDouble(getChoice(slotChoice));
+            slot = Integer.parseInt(getChoice(slotChoice))-1;
+            price=Double.parseDouble(priceText.getText());
             if(!VM.getVM().getSlotList()[slot].getProduct().setPrice(price)){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Vending Machine");
@@ -302,7 +322,7 @@ public class MaintenanceVMGUI implements Initializable {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Vending Machine");
                 alert.setHeaderText(null);
-                alert.setContentText("Restocked Successfully!!");
+                alert.setContentText("Set Price Successfully!!");
                 alert.showAndWait();
 
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("MaintenanceVMGUI.fxml"));

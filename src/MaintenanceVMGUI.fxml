@@ -67,13 +67,13 @@
                      </children></AnchorPane>
               </content>
             </Tab>
-            <Tab text="Get Cash">
+            <Tab text="Collect Cash">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                            <children>
-                              <Label text="Get Cash">
+                              <Label text="Collect Cash">
                                  <font>
                                     <Font name="Arial Black" size="60.0" />
                                  </font>
@@ -128,7 +128,7 @@
                         </VBox>
                         <ScrollPane fx:id="pricePane" fitToHeight="true" fitToWidth="true" layoutX="388.0" layoutY="344.0" prefHeight="308.0" prefWidth="287.0" AnchorPane.bottomAnchor="117.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="500.0" AnchorPane.topAnchor="344.0">
                           <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="262.0" prefWidth="220.0" />
+                            <AnchorPane fx:id="itemPane" minHeight="0.0" minWidth="0.0" prefHeight="262.0" prefWidth="220.0" />
                           </content>
                         </ScrollPane>
                         <TextField fx:id="priceText" layoutX="345.0" layoutY="279.0" prefHeight="44.0" prefWidth="240.0" AnchorPane.leftAnchor="350.0" />

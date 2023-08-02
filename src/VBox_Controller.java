@@ -4,6 +4,7 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 
 
 public class VBox_Controller {
@@ -27,15 +28,16 @@ public class VBox_Controller {
         returnedCash.setGridLinesVisible(true);
 
         textbox.setPrefRowCount(3);
+        textbox.setFont(new Font("Arial Black",15));
         textbox.setText("Transaction Type : "+transaction.getTransactionType()+"\nProduct : "+transaction.getProductName()+"\nReturned Cash : ");
 
         for(int i=0;i<transaction.getReturnedCash().length;i++){
             for(int j=0;j<2;j++){
                 if(j==1){
-                    returnedCash.add(new Label(String.valueOf(transaction.getReturnedCash()[i].getQuantity())),j,i);
+                    returnedCash.add(new Label("x "+transaction.getReturnedCash()[i].getQuantity()),j,i);
                 }
                 else{
-                    returnedCash.add(new Label(String.valueOf(transaction.getReturnedCash()[i].getDenomination())),j,i);
+                    returnedCash.add(new Label("PHP "+transaction.getReturnedCash()[i].getDenomination()),j,i);
                 }
             }
         }

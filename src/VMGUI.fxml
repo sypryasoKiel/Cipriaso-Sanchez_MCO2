@@ -65,7 +65,7 @@
             <Font name="Arial Black" size="21.0" />
          </font>
       </TextField>
-      <ScrollPane fitToWidth="true" layoutX="40.0" layoutY="100.0" prefHeight="503.0" prefWidth="480.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="460.0" AnchorPane.topAnchor="30.0">
+      <ScrollPane fitToWidth="true" layoutX="40.0" layoutY="100.0" prefHeight="477.0" prefWidth="480.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="460.0" AnchorPane.topAnchor="30.0">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="665.0" prefWidth="464.0">
                <children>
@@ -203,12 +203,12 @@
             <Font name="Arial Black" size="20.0" />
          </font>
       </Button>
-      <TextField fx:id="itemPane" editable="false" layoutX="61.0" layoutY="560.0" prefHeight="45.0" prefWidth="481.0" text="Selected Item : " AnchorPane.leftAnchor="61.0">
+      <TextField fx:id="itemPane" editable="false" layoutX="60.0" layoutY="480.0" prefHeight="45.0" prefWidth="481.0" text="Selected Item : " AnchorPane.bottomAnchor="240.0" AnchorPane.leftAnchor="60.0">
          <font>
             <Font name="Arial Black" size="21.0" />
          </font>
       </TextField>
-      <TextArea fx:id="itemDescPane" editable="false" layoutX="62.0" layoutY="617.0" prefHeight="103.0" prefWidth="481.0" text="Description : ">
+      <TextArea fx:id="itemDescPane" editable="false" layoutX="62.0" layoutY="617.0" prefHeight="103.0" prefWidth="481.0" text="Description : " AnchorPane.leftAnchor="60.0">
          <font>
             <Font size="20.0" />
          </font>
@@ -223,5 +223,10 @@
             <Font name="Arial Black" size="30.0" />
          </font>
       </Label>
+      <TextField fx:id="caloriesPane" editable="false" layoutX="62.0" layoutY="544.0" prefHeight="45.0" prefWidth="266.0" text="Calories : " AnchorPane.bottomAnchor="190.0" AnchorPane.leftAnchor="60.0">
+         <font>
+            <Font name="Arial Black" size="21.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>

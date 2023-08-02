@@ -26,6 +26,8 @@ public class VMGUI_Controller {
     private TextArea itemDescPane;
     @FXML
     private TextField pricePane;
+    @FXML
+    private TextField caloriesPane;
     private int slotPicked;
     private Stage stage;
     private Scene scene;
@@ -60,7 +62,9 @@ public class VMGUI_Controller {
             this.slotPicked = choice - 1;
         }
         System.out.println("slotPicked : "+slotPicked);
+
         itemPane.setText("Selected Item : "+items[slotPicked]);
+        caloriesPane.setText("Calories : "+VM.getVM().getSlotList()[slotPicked].getProduct().getCalories()+" kcal");
         itemDescPane.setText("Description : "+itemDesc[slotPicked]);
         pricePane.setText(String.valueOf(VM.getVM().getSlotList()[slotPicked].getProduct().getPrice()));
 
@@ -93,13 +97,47 @@ public class VMGUI_Controller {
             stage.show();
         }
         else if(result==0){
-            System.out.println("oof");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Vending Machine");
+            alert.setHeaderText(null);
+            alert.setContentText("Failed to buy item, Not enough money!!");
+            alert.showAndWait();
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TestVMGUI.fxml"));
+            root = loader.load();
+            stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
         }
         else if(result==-1){
-            System.out.println("oof grabe");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Vending Machine");
+            alert.setHeaderText(null);
+            alert.setContentText("Failed to buy item, Item Unavailable");
+            alert.showAndWait();
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TestVMGUI.fxml"));
+            root = loader.load();
+            stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         }
         else if(result==-2){
-            System.out.println("wawa ka naman");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Vending Machine");
+            alert.setHeaderText(null);
+            alert.setContentText("Failed to buy item, Insufficient change!!");
+            alert.showAndWait();
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TestVMGUI.fxml"));
+            root = loader.load();
+            stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         }
     }
 
