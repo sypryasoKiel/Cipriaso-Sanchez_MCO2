@@ -1,14 +1,28 @@
+/**
+ * Item class that represents an item in the vending machine
+ */
 public class Item {
     private double Price;
     private final String NAME;
     private final double CALORIES;
 
+    /**
+     * constructor for the item
+     * @param price the price of the item
+     * @param name the name of the item
+     * @param calories the amount of calories of the item
+     */
     public Item(double price, String name, double calories){
         this.NAME = name;
         this.Price = price;
         this.CALORIES = calories;
     }
 
+    /**
+     * sets the price of the item
+     * @param price the price
+     * @return true if the price is valid, false if not
+     */
     public boolean setPrice(double price){
         if(price>0) {
             this.Price = price;
@@ -35,7 +49,7 @@ public class Item {
 
     /**
      * gets the amount of calories of the item
-     * @return
+     * @return calories the amount of calories
      */
     public double getCalories(){
         return this.CALORIES;

@@ -1,7 +1,15 @@
+/**
+ * Cash class that represents the cash in the vending machine
+ */
 public class Cash {
     private final double DENOMINATION;
     private int Quantity;
 
+    /**
+     * constructor for the cash
+     * @param denomination the denomination of the cash
+     * @param qty the quantity of the cash
+     */
     public Cash(double denomination, int qty){
         this.DENOMINATION = denomination;
         this.Quantity = qty;
@@ -17,7 +25,7 @@ public class Cash {
 
     /**
      * adds quantity to the cash
-     * @param qty
+     * @param qty the quantity to be added
      */
     public void addQuantity(int qty){
         if(qty>=1){
@@ -27,7 +35,7 @@ public class Cash {
 
     /**
      * removes quantity from the cash
-     * @param qty
+     * @param qty the quantity to be removed
      */
     public void removeQuantity(int qty){
         if(qty>=1 && (this.Quantity-qty)>=0){

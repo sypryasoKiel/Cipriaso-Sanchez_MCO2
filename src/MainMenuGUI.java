@@ -1,3 +1,6 @@
+/**
+ * This class is used to control the main menu of the application
+ */
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;

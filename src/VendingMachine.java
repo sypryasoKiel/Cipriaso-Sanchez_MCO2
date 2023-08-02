@@ -1,29 +1,56 @@
 import java.util.ArrayList;
-
+/**
+ * VendingMachine class
+ * This class is the superclass of RVMachine and SVMachine
+ */
 public class VendingMachine {
+    /**
+     * This is the list of slots in the vending machine
+     */
     public Slot[] slotList;
+    /**
+     * This is the cash storage of the vending machine
+     */
     public CashRegister CashStorage;
+    /**
+     * This is the list of transactions of the vending machine
+     */
     public ArrayList<Transaction> Transactions;
 
+    /**
+     * This is the constructor for the VendingMachine class
+     */
     public VendingMachine(){
         this.CashStorage = new CashRegister(10);
         this.Transactions = new ArrayList<>();
     }
 
+    /**
+     * gets the slot list
+     * @return slotList the slot list
+     */
     public Slot[] getSlotList(){
         return slotList;
     }
+    /**
+     * gets the transactions
+     * @return Transactions the transactions
+     */
     public ArrayList<Transaction> getTransactions(){
         return this.Transactions;
     }
+    /**
+     * gets the cash storage
+     * @return CashStorage the cash storage
+     */
     public CashRegister getCashStorage() {
         return CashStorage;
     }
 
     /**
-     * 
-     * @param money
-     * @return wallet 
+     *  converts a money in double format to cash array format
+     * @param money the money to be converted
+     * @return wallet  the cash array format of the money
      */
     public Cash[] doubleToCash(double money){ //transforms a money in double format (i.e. PHP 1234.56) to cash array format (i.e. 1x 1000, 1x 200, 1x 20, 1x 10, 4x 1, 2x 0.25, 1x 0.05, 1x 0.01)
         Cash[] wallet = new Cash[12];
@@ -107,6 +134,11 @@ public class VendingMachine {
         return wallet;
     }
 
+    /**
+     * checks if change can be given by the cash register
+     * @param change the change to be given
+     * @return true if change can be given, false if not
+     */
     public boolean isChangeAvailable(Cash[] change){ //checks if change can be given by the cash register
         for(int i=0;i<CashStorage.getRegister().length;i++){
             if(change[i].getQuantity()>this.CashStorage.getRegister()[i].getQuantity())
@@ -115,10 +147,22 @@ public class VendingMachine {
         return true;
     }
 
+    /**
+     * calculates the change to be produced
+     * @param payment the payment
+     * @param product the product
+     * @return the change to be produced
+     */
     public double calculateChange(double payment, Item product){
         return payment-product.getPrice();
     } //calculates the change to be produced in double format
 
+    /**
+     * produces the change needed to give in cash array format
+     * @param payment the payment
+     * @param product the product
+     * @return the change needed to give in cash array format
+     */
     public Cash[] produceChange(double payment, Item product){ //produces the change needed to give in cash array format
         Cash[] change = doubleToCash(calculateChange(payment,product));
 
@@ -128,6 +172,12 @@ public class VendingMachine {
         return change;
     }
 
+    /**
+     * checks if the transaction is valid
+     * @param payment the payment
+     * @param slotNum the slot number
+     * @return 1 if the transaction was a success, 0 if the payment was not enough, -1 if the machine cant give change, and -2 if the item is unavailable/out of stock
+     */
     public int checkBuy(double payment, int slotNum){ //checks the criteria for a transaction, returns: 1 if the transaction was a success, 0 if the payment was not enough, -1 if the machine cant give change, and -2 if the item is unavailable/out of stock
         Cash[] cashChange;
         double doubleChange;
@@ -151,6 +201,12 @@ public class VendingMachine {
         }
     }
 
+    /**
+     * buys an item
+     * @param payment the payment
+     * @param slotNum the slot number
+     * @return 1 if the transaction was a success, 0 if the payment was not enough, -1 if the machine cant give change, and -2 if the item is unavailable/out of stock
+     */
     public int buyItem(double payment, int slotNum){ //makes a transaction log and sells the actual item, returns the criteria to be handled by the controller
         int checkbuy;
 

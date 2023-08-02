@@ -1,7 +1,14 @@
+/**
+ * Factory class that creates a vending machine
+ */
 public class Factory {
     private VendingMachine VM;
     VMSingleton vm = VMSingleton.getInstance();
 
+    /**
+     * Initializes the items in the vending machine
+     * @return itemList the list of items in the vending machine
+     */
     public Item[] itemInit(){
         Item[] itemList = new Item[16];
 

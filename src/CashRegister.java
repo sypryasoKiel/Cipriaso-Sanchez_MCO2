@@ -1,9 +1,14 @@
+
+/**
+ * CashRegister class
+ * This class is used to represent the cash register
+ */
     public class CashRegister {
     private Cash[] Register;
 
     /**
      * Constructor for objects of class CashRegister
-     * @param qty
+     * @param qty the quantity of cash in the register
      */
     public CashRegister(int qty){
         this.Register=new Cash[12];
@@ -24,7 +29,7 @@
 
     /**
      * Adds cash to the register
-     * @param cash
+     * @param cash the cash to be added
      */
     public void addCash(Cash cash){ //adds cash to register
         for(int i=0;i<Register.length;i++){
@@ -36,7 +41,7 @@
 
     /**
      * Removes cash from the register
-     * @param cash
+     * @param cash the cash to be removed
      */
     public void removeCash(Cash cash){ //removes cash from the register
         for(int i=0;i<Register.length;i++){
