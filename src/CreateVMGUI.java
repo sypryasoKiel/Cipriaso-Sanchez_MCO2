@@ -74,9 +74,8 @@ public class CreateVMGUI implements Initializable {
             Factory createVM = new Factory();
             String choice = vmType.getValue();
             int maxcap = (int) maxCap.getValue();
-            System.out.println("choice : "+choice);
             createVM.createVendingMachine(choice, maxcap);
-            VM.getVM();
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("MainMenuGUI.fxml"));
             root = loader.load();
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

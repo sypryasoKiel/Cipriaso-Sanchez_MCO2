@@ -239,9 +239,7 @@ public class MaintenanceVMGUI implements Initializable {
         }
         cash=Double.parseDouble(cashText.getText());
         wallet=VM.getVM().doubleToCash(cash);
-        for(int i=0;i< wallet.length;i++){
-            System.out.printf("Cash : %f %d\n",wallet[i].getDenomination(),wallet[i].getQuantity());
-        }
+
         if(VM.getVM().isChangeAvailable(wallet)){
             for(int i=0;i<VM.getVM().getCashStorage().getRegister().length;i++){
                 VM.getVM().getCashStorage().removeCash(wallet[i]);

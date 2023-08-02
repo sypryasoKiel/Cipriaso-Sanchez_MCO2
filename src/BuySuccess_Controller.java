@@ -25,6 +25,8 @@ public class BuySuccess_Controller implements Initializable {
     private ScrollPane receiptPane;
     @FXML
     private Button backButton;
+    @FXML
+    private Label total;
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -61,7 +63,7 @@ public class BuySuccess_Controller implements Initializable {
         }
 
 
-
+        total.setText("Change : "+totalChange);
         receiptPane.setContent(grid3);
         receiptPane.setFitToWidth(true);
         receiptPane.setFitToHeight(false);
@@ -76,5 +78,4 @@ public class BuySuccess_Controller implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
 }

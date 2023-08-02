@@ -64,6 +64,15 @@ public class Slot {
         return false;
     }
 
+    public boolean sellItem(int qty){ //decrements 1 and returns true if quantity in the slot is greater than 0, else it returns false
+        if(this.getQuantity()-qty>=0) {
+            this.Items.remove(getQuantity() - qty);
+            return true;
+        }
+        return false;
+    }
+
+
     /**
      * gets the product inside the slot
      * @return Product the product inside the slot

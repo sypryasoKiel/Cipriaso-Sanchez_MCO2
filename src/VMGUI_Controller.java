@@ -1,6 +1,7 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
@@ -12,9 +13,11 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
-public class VMGUI_Controller {
+public class VMGUI_Controller implements Initializable {
 
     @FXML
     private GridPane VMPanel;
@@ -28,6 +31,8 @@ public class VMGUI_Controller {
     private TextField pricePane;
     @FXML
     private TextField caloriesPane;
+    @FXML
+    private Button customButton;
     private int slotPicked;
     private Stage stage;
     private Scene scene;
@@ -36,7 +41,13 @@ public class VMGUI_Controller {
     VMSingleton VM = VMSingleton.getInstance();
     private double counter = 0;
 
-
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        if(!VM.getVM().getClass().toString().equals("class SVMachine")){
+            customButton.setVisible(false);
+            customButton.setDisable(true);
+        }
+    }
 
     @FXML
     public void buttonClick(ActionEvent event){
@@ -52,16 +63,14 @@ public class VMGUI_Controller {
                             "Rainbow Sprinkles","Chocolate Chips","Sugar","Chocolate Cake",
                             "Black Forest Cake","Cornbread Muffin","Vanilla Cupcake","Baguette"};
 
-        String[] itemDesc = {"An ordinary egg, wow","Used for baking and... deep frying?","Dark is the best flavor fight me!","Smooth like butter\nlike a criminal undercover","That one Owl City song","Pinagkaiba nito sa baking soda?"
-                ,"Tambay sa ref", "#Pride","Kulang sa cookies fr","Yoko sa maroon 5","mmmmmfgh...",
-                "overrated but oks naman basta libre sa bday","I believe in Kenny Rogers Supremacy","Ew? basic..","BAGUETTEEEEEEEEE"};
+        String[] itemDesc = {"An ordinary egg, for breakfast and binding agent","Used for baking and deep frying","Milk Chocolate, from Belgium","Fresh Butter\nfrom local farmers","Typically used for deserts","Helps in making good bread"
+                ,"Fresh Milk\ngathered by local farmers", "Assorted sprinkles for cakes","For chocolate chip cookies","Natural sweetener","Freshly baked chocolate cake",
+                "A work of art","Muffins sourced from a\nchain restaurant","A very basic cupcake","Long narrow French Bread"};
 
         choice = Integer.parseInt(button.getText());
-        System.out.println("choice : "+choice);
         if(choice!=1) {
             this.slotPicked = choice - 1;
         }
-        System.out.println("slotPicked : "+slotPicked);
 
         itemPane.setText("Selected Item : "+items[slotPicked]);
         caloriesPane.setText("Calories : "+VM.getVM().getSlotList()[slotPicked].getProduct().getCalories()+" kcal");
@@ -141,6 +150,14 @@ public class VMGUI_Controller {
         }
     }
 
+    public void custom(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CustomItemsVMGUI.fxml"));
+        root = loader.load();
+        stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
     public void back(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("TestVMGUI.fxml"));
         root = loader.load();
