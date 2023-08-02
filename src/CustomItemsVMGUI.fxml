@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #F3D19E;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CustomItemsVMGUI">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8c675" height="800.0" layoutX="200.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8be67" height="800.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
+      <ScrollPane layoutX="490.0" layoutY="90.0" prefHeight="390.0" prefWidth="420.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="550.0" prefWidth="402.0">
+               <children>
+                  <GridPane gridLinesVisible="true" layoutX="28.0" layoutY="88.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="115.0" pickOnBounds="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <image>
+                              <Image url="@resources/Brown-eggs.jpeg" />
+                           </image></ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="115.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <image>
+                              <Image url="@resources/download (11).jpeg" />
+                           </image></ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="115.0" pickOnBounds="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <image>
+                              <Image url="@resources/download (16).jpeg" />
+                           </image></ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="115.0" pickOnBounds="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                           <image>
+                              <Image url="@resources/download (7).jpeg" />
+                           </image></ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="115.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                           <image>
+                              <Image url="@resources/download (12).jpeg" />
+                           </image></ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="115.0" pickOnBounds="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                           <image>
+                              <Image url="@resources/download (17).jpeg" />
+                           </image></ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="115.0" pickOnBounds="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                           <image>
+                              <Image url="@resources/download (8).jpeg" />
+                           </image></ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="115.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                           <image>
+                              <Image url="@resources/download (13).jpeg" />
+                           </image></ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="115.0" pickOnBounds="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                           <image>
+                              <Image url="@resources/download (18).jpeg" />
+                           </image></ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="115.0" pickOnBounds="true" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                           <image>
+                              <Image url="@resources/download (9).jpeg" />
+                           </image></ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="115.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                           <image>
+                              <Image url="@resources/download (14).jpeg" />
+                           </image></ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="115.0" pickOnBounds="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                           <image>
+                              <Image url="@resources/download (19).jpeg" />
+                           </image></ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="115.0" pickOnBounds="true" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                           <image>
+                              <Image url="@resources/download (10).jpeg" />
+                           </image></ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="115.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                           <image>
+                              <Image url="@resources/download (15).jpeg" />
+                           </image></ImageView>
+                        <ImageView fitHeight="100.0" fitWidth="115.0" pickOnBounds="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                           <image>
+                              <Image url="@resources/download (20).jpeg" />
+                           </image></ImageView>
+                        <Spinner fx:id="spin1" onDragDetected="#spinnerClick" GridPane.valignment="BOTTOM" />
+                        <Spinner fx:id="spin6" onDragDetected="#spinnerClick" GridPane.columnIndex="1" GridPane.valignment="BOTTOM" />
+                        <Spinner fx:id="spin11" onDragDetected="#spinnerClick" GridPane.columnIndex="2" GridPane.valignment="BOTTOM" />
+                        <Spinner fx:id="spin2" onDragDetected="#spinnerClick" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+                        <Spinner fx:id="spin7" onDragDetected="#spinnerClick" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+                        <Spinner fx:id="spin12" onDragDetected="#spinnerClick" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+                        <Spinner fx:id="spin3" onDragDetected="#spinnerClick" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+                        <Spinner fx:id="spin8" onDragDetected="#spinnerClick" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+                        <Spinner fx:id="spin4" onDragDetected="#spinnerClick" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
+                        <Spinner fx:id="spin13" onDragDetected="#spinnerClick" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+                        <Spinner fx:id="spin9" onDragDetected="#spinnerClick" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
+                        <Spinner fx:id="spin14" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
+                        <Spinner fx:id="spin5" onDragDetected="#spinnerClick" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
+                        <Spinner fx:id="spin10" onDragDetected="#spinnerClick" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
+                        <Spinner fx:id="spin15" onDragDetected="#spinnerClick" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.valignment="BOTTOM" />
+                     </children>
+                  </GridPane>
+               </children></AnchorPane>
+        </content>
+      </ScrollPane>
+      <TextArea fx:id="itemsPickedPane" layoutX="490.0" layoutY="500.0" maxWidth="285.0" prefHeight="200.0" prefWidth="285.0" text="Items Picked :">
+         <font>
+            <Font name="Arial Black" size="20.0" />
+         </font>
+      </TextArea>
+      <TextField fx:id="paidField" editable="false" layoutX="50.0" layoutY="100.0" prefHeight="50.0" prefWidth="300.0">
+         <font>
+            <Font name="Arial Black" size="20.0" />
+         </font></TextField>
+      <TextField fx:id="priceField" editable="false" layoutX="50.0" layoutY="215.0" prefHeight="50.0" prefWidth="300.0">
+         <font>
+            <Font name="Arial Black" size="20.0" />
+         </font></TextField>
+      <Label layoutX="50.0" layoutY="170.0" text="Price : ">
+         <font>
+            <Font name="Arial Black" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="50.0" text="Paid : ">
+         <font>
+            <Font name="Arial Black" size="30.0" />
+         </font>
+      </Label>
+      <Button fx:id="buyButton" layoutX="50.0" layoutY="608.0" mnemonicParsing="false" onAction="#buy" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #9f9f9f; -fx-border-color: #000000; -fx-border-width: 5;" text="Buy !!">
+         <font>
+            <Font name="Arial Black" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="backButton" layoutX="50.0" layoutY="670.0" mnemonicParsing="false" onAction="#back" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #9f9f9f; -fx-border-color: #000000; -fx-border-width: 5;" text="Back">
+         <font>
+            <Font name="Arial Black" size="20.0" />
+         </font>
+      </Button>
+      <GridPane hgap="10.0" layoutX="50.0" layoutY="320.0" prefHeight="232.0" prefWidth="300.0" vgap="10.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="btn10" mnemonicParsing="false" onAction="#buttonClick" prefHeight="100.0" prefWidth="300.0" text="200" />
+            <Button fx:id="btn11" mnemonicParsing="false" onAction="#buttonClick" prefHeight="100.0" prefWidth="300.0" text="500" GridPane.columnIndex="1" />
+            <Button fx:id="btn12" mnemonicParsing="false" onAction="#buttonClick" prefHeight="100.0" prefWidth="300.0" text="1000" GridPane.columnIndex="2" />
+            <Button fx:id="btn7" mnemonicParsing="false" onAction="#buttonClick" prefHeight="100.0" prefWidth="300.0" text="20" GridPane.rowIndex="1" />
+            <Button fx:id="btn8" mnemonicParsing="false" onAction="#buttonClick" prefHeight="100.0" prefWidth="300.0" text="50" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="btn9" mnemonicParsing="false" onAction="#buttonClick" prefHeight="100.0" prefWidth="300.0" text="100" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button fx:id="btn4" mnemonicParsing="false" onAction="#buttonClick" prefHeight="100.0" prefWidth="300.0" text="1" GridPane.rowIndex="2" />
+            <Button fx:id="btn5" mnemonicParsing="false" onAction="#buttonClick" prefHeight="100.0" prefWidth="300.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="btn6" mnemonicParsing="false" onAction="#buttonClick" prefHeight="100.0" prefWidth="300.0" text="10" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Button fx:id="btn1" mnemonicParsing="false" onAction="#buttonClick" prefHeight="100.0" prefWidth="300.0" text="0.01" GridPane.rowIndex="3" />
+            <Button fx:id="btn2" mnemonicParsing="false" onAction="#buttonClick" prefHeight="100.0" prefWidth="300.0" text="0.05" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button fx:id="btn3" mnemonicParsing="false" onAction="#buttonClick" prefHeight="100.0" prefWidth="300.0" text="0.25" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
+      <Button fx:id="updateList" layoutX="810.0" layoutY="500.0" mnemonicParsing="false" onAction="#update" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #9f9f9f; -fx-border-color: #000000; -fx-border-width: 5;" text="Update">
+         <font>
+            <Font name="Arial Black" size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
