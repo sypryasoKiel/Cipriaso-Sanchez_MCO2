@@ -1,8 +1,8 @@
+import java.util.ArrayList;
+
 /**
  * Transaction class that stores the transaction type, the product, and the cash returned/change
  */
-import java.util.ArrayList;
-
 public class Transaction {
 
     private String transactionType;
@@ -10,6 +10,12 @@ public class Transaction {
     private Cash[] returnedCash;
     private Slot[] slots;
 
+    /**
+     * constructor for the transaction
+     * @param transactionType The type of transaction (i.e. "Sold Item", "Refunded - Insufficient Payment, "Refunded - No Change produced")
+     * @param product the product to be bought (when cash is refunded) or when sold (when change is provided)
+     * @param returnedCash the amount of cash returned/change
+     */
     public Transaction(String transactionType, String product, Cash[] returnedCash){ //constructor, requires transactionType (i.e. "Sold Item", "Refunded - Insufficient Payment, "Refunded - No Change produced"), The product itself, and the money refunded/change
         this.transactionType = transactionType;
         this.product = product;

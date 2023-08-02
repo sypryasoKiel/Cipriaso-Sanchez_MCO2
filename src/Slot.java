@@ -1,13 +1,17 @@
+import java.util.ArrayList;
+
 /**
  * Slot class that represents a slot in the vending machine
  */
-import java.util.ArrayList;
-
 public class Slot {
     private ArrayList<Item> Items;
     private Item Product;
     private int MaxQty;
 
+    /**
+     * constructor for the slot
+     * @param max the maximum capacity of the slot
+     */
     public Slot(int max){ //constructor, requires maximum capacity
         this.Items = new ArrayList<>();
         this.MaxQty = max;

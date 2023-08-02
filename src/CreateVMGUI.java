@@ -1,3 +1,9 @@
+/**
+ * CreateVMGUI.java
+ * This class is the controller for the CreateVMGUI.fxml file
+ * It is used to create a vending machine
+ */
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

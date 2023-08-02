@@ -1,8 +1,15 @@
-
+/**
+ * Cash class that represents the cash in the vending machine
+ */
 public class Cash {
     private final double DENOMINATION;
     private int Quantity;
 
+    /**
+     * constructor for the cash
+     * @param denomination the denomination of the cash
+     * @param qty the quantity of the cash
+     */
     public Cash(double denomination, int qty){
         this.DENOMINATION = denomination;
         this.Quantity = qty;

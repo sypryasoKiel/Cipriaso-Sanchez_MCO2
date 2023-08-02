@@ -1,7 +1,13 @@
+/**
+ * VMSingleton class is used to create a single instance of the vending machine
+ */
 public class VMSingleton {
     private static VMSingleton instance;
     private VendingMachine VM;
 
+    /**
+     * constructor for the VMSingleton
+     */
     private VMSingleton(){}
     static VMSingleton getInstance() {
         if(instance==null){

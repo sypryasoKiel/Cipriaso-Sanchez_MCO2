@@ -1,3 +1,8 @@
+
+/**
+ * CashRegister class
+ * This class is used to represent the cash register
+ */
     public class CashRegister {
     private Cash[] Register;
 

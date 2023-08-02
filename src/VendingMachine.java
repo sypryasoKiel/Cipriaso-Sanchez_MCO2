@@ -1,10 +1,25 @@
 import java.util.ArrayList;
-
+/**
+ * VendingMachine class
+ * This class is the superclass of RVMachine and SVMachine
+ */
 public class VendingMachine {
+    /**
+     * This is the list of slots in the vending machine
+     */
     public Slot[] slotList;
+    /**
+     * This is the cash storage of the vending machine
+     */
     public CashRegister CashStorage;
+    /**
+     * This is the list of transactions of the vending machine
+     */
     public ArrayList<Transaction> Transactions;
 
+    /**
+     * This is the constructor for the VendingMachine class
+     */
     public VendingMachine(){
         this.CashStorage = new CashRegister(10);
         this.Transactions = new ArrayList<>();
@@ -33,9 +48,9 @@ public class VendingMachine {
     }
 
     /**
-     * 
-     * @param money
-     * @return wallet 
+     *  converts a money in double format to cash array format
+     * @param money the money to be converted
+     * @return wallet  the cash array format of the money
      */
     public Cash[] doubleToCash(double money){ //transforms a money in double format (i.e. PHP 1234.56) to cash array format (i.e. 1x 1000, 1x 200, 1x 20, 1x 10, 4x 1, 2x 0.25, 1x 0.05, 1x 0.01)
         Cash[] wallet = new Cash[12];

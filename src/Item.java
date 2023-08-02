@@ -1,8 +1,17 @@
+/**
+ * Item class that represents an item in the vending machine
+ */
 public class Item {
     private double Price;
     private final String NAME;
     private final double CALORIES;
 
+    /**
+     * constructor for the item
+     * @param price the price of the item
+     * @param name the name of the item
+     * @param calories the amount of calories of the item
+     */
     public Item(double price, String name, double calories){
         this.NAME = name;
         this.Price = price;
