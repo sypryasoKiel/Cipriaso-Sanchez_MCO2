@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-
+/**
+ * SVMachine class is a subclass of VendingMachine
+ */
 public class SVMachine extends VendingMachine {
     private ArrayList<Item> itemBundle;
     private ArrayList<Item> itemList;
@@ -14,10 +16,18 @@ public class SVMachine extends VendingMachine {
         this.itemList = new ArrayList<>();
     }
 
+    /**
+     * This method is used to get the item bundle
+     * @return slotList the list of slots
+     */
     public ArrayList<Item> getItemBundle() {
         return itemBundle;
     }
 
+    /**
+     * gets the total amount of calories in the item bundle
+     * @return totalCalories the total amount of calories
+     */
     public double getTotalCalories() {
         double totalCalories=0;
         for (Item item : itemBundle) {
@@ -26,16 +36,27 @@ public class SVMachine extends VendingMachine {
         return totalCalories;
     }
 
+    /**
+     * clears the item bundle and item list
+     */
     public void clearList(){
         this.itemBundle.clear();
         this.itemList.clear();
     }
 
+    /**
+     * gets the item list
+     * @return itemList the list of items
+     */
     public ArrayList<Item> getItemList(){
         return itemList;
     }
 
 
+    /**
+     * This method is used to set the text of the items
+     * @return items the text of the items
+     */
     public String setItemsText(){
         StringBuilder items = new StringBuilder();
 
@@ -50,6 +71,11 @@ public class SVMachine extends VendingMachine {
         return items.toString();
     }
 
+    /**
+     * adds an item to the item bundle
+     * @param item the item to be added
+     * @param qty the quantity of the item to be added
+     */
     public void addItemToBundle(Item item, int qty){
         boolean doesExist = false;
         for (Item value : itemBundle) {
@@ -74,6 +100,11 @@ public class SVMachine extends VendingMachine {
         return payment-price;
     }
 
+    /**
+     * produces change in cash array format
+     * @param payment the amount of money to be given
+     * @return change the change to be given
+     */
     public Cash[] produceChange(double payment){ //produces the change needed to give in cash array format
         Cash[] change = doubleToCash(calculateChange(payment));
         for(int i=0;i<CashStorage.getRegister().length;i++){
@@ -82,6 +113,11 @@ public class SVMachine extends VendingMachine {
         return change;
     }
 
+    /**
+     * checks the criteria for a transaction
+     * @param payment the amount of money to be given
+     * @return 1 if the transaction was a success, 0 if the payment was not enough, -1 if the machine cant give change, and -2 if the item is unavailable/out of stock
+     */
     public int checkBuy(double payment){ //checks the criteria for a transaction, returns: 1 if the transaction was a success, 0 if the payment was not enough, -1 if the machine cant give change, and -2 if the item is unavailable/out of stock
         double doubleChange;
         Cash[] change;
@@ -102,7 +138,11 @@ public class SVMachine extends VendingMachine {
     }
 
 
-
+/**
+ * buys an item 
+ * @param payment the amount of money to be given
+ * @return 1 if the transaction was a success, 0 if the payment was not enough, -1 if the machine cant give change, and -2 if the item is unavailable/out of stock
+ */
     public int buyItem(double payment){ //makes a transaction log and sells the actual item, returns the criteria to be handled by the controller
         int checkbuy;
         StringBuilder items = new StringBuilder();
