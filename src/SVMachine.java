@@ -7,6 +7,10 @@ import java.util.Collections;
 public class SVMachine extends VendingMachine {
     private ArrayList<Item> itemBundle;
     private ArrayList<Item> itemList;
+    /**
+     * This is the list of slots in the vending machine
+     * @param slotList the list of slots
+     */
     public SVMachine(Slot[] slotList){
         super();
         this.slotList = slotList;
@@ -92,6 +96,11 @@ public class SVMachine extends VendingMachine {
             itemList.add(item);
     }
 
+    /**
+     * calculates the total change to be given
+     * @param payment the amount of money 
+     * @return payment-price the total change to be given
+     */
     public double calculateChange(double payment){
         double price=0;
         for (Item item : itemBundle) {
