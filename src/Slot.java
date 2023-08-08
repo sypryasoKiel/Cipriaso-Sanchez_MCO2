@@ -7,6 +7,7 @@ public class Slot {
     private ArrayList<Item> Items;
     private Item Product;
     private int MaxQty;
+    private double totalSales;
 
     /**
      * constructor for the slot
@@ -56,6 +57,10 @@ public class Slot {
         return this.MaxQty;
     }
 
+    public double getTotalSales(){
+        return this.totalSales;
+    }
+
     /**
      * sells an item from the slot
      * @return true if the quantity in the slot is greater than 0, false otherwise
@@ -63,14 +68,7 @@ public class Slot {
     public boolean sellItem(){ //decrements 1 and returns true if quantity in the slot is greater than 0, else it returns false
         if(this.getQuantity()-1>=0) {
             this.Items.remove(getQuantity() - 1);
-            return true;
-        }
-        return false;
-    }
-
-    public boolean sellItem(int qty){ //decrements 1 and returns true if quantity in the slot is greater than 0, else it returns false
-        if(this.getQuantity()-qty>=0) {
-            this.Items.remove(getQuantity() - qty);
+            this.totalSales += this.Product.getPrice();
             return true;
         }
         return false;

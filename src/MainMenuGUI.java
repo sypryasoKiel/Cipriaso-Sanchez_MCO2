@@ -32,6 +32,23 @@ public class MainMenuGUI{
         stage.show();
     }
 
+    public void displayTopSellingItem(){
+        if(VM.getVM()==null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Vending Machine");
+            alert.setHeaderText(null);
+            alert.setContentText("Create a Vending machine first!!!");
+            alert.showAndWait();
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Vending Machine");
+            alert.setHeaderText(null);
+            alert.setContentText("Top Selling Item: " + VM.getVM().getTopSellingItem() + "\nTotal Sales: " + VM.getVM().getTotalSales());
+            alert.showAndWait();
+        }
+    }
+
     /**
      * This method is used to open the test menu
      * @param event the event that triggers the method

@@ -16,6 +16,8 @@ public class VendingMachine {
      * This is the list of transactions of the vending machine
      */
     public ArrayList<Transaction> Transactions;
+    private double totalSales;
+    private String topSellingItem;
 
     /**
      * This is the constructor for the VendingMachine class
@@ -23,6 +25,15 @@ public class VendingMachine {
     public VendingMachine(){
         this.CashStorage = new CashRegister(10);
         this.Transactions = new ArrayList<>();
+        this.topSellingItem = "";
+    }
+
+    public double getTotalSales(){
+        return this.totalSales;
+    }
+
+    public String getTopSellingItem(){
+        return this.topSellingItem;
     }
 
     /**
@@ -234,6 +245,18 @@ public class VendingMachine {
                 return -3;
         }
     }
+
+    public void displayTopSellingItem(){
+
+        for(int i=0; 1 <= 14; i++){
+            if(totalSales > slotList[i].getProduct().getTotalSales()){
+                topSellingItem = slotList[i].getProduct().getName();
+                totalSales = slotList[i].getProduct().getTotalSales();
+            }   
+        }
+        
+    }
+
 }
 
 

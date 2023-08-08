@@ -5,6 +5,7 @@ public class Item {
     private double Price;
     private final String NAME;
     private final double CALORIES;
+    private double totalSales;
 
     /**
      * constructor for the item
@@ -16,6 +17,7 @@ public class Item {
         this.NAME = name;
         this.Price = price;
         this.CALORIES = calories;
+        this.totalSales = totalSales;
     }
 
     /**
@@ -54,4 +56,9 @@ public class Item {
     public double getCalories(){
         return this.CALORIES;
     }
+
+    public double getTotalSales() {
+        return totalSales;
+    }
+
 }
